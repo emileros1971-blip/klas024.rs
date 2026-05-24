@@ -1,226 +1,715 @@
-Please adjust the existing website code without changing the overall design, layout, colors, fonts, sections, product cards, filters, or general structure.
-
-Make only the following corrections.
-
-1. IMPORTANT GITHUB FILE STRUCTURE
-
-For this website, the main images will be placed directly next to index.html in the GitHub repository root.
-
-Do NOT require these files to be inside an /images/ folder:
-- bakery-hero.jpg
-- logo.png
-- onama.png
-- category images if used
-
-The opening hero background image file will be named exactly:
-
-bakery-hero.jpg
-
-It will be uploaded in the same place as index.html.
-
-Therefore, the hero background image path must be:
-
-bakery-hero.jpg
-
-NOT:
-- /images/bakery-hero.jpg
-- images/bakery-hero.jpg
-- ./images/bakery-hero.jpg
-
-Please replace every hero/storefront image reference with:
-
-bakery-hero.jpg
-
-This applies to:
-- main hero section background
-- any other place where the storefront hero image is used
-
-The hero section must clearly show bakery-hero.jpg as the opening background image when the website loads.
-
-Keep a dark overlay only enough for text readability, but make sure the actual bakery storefront image is clearly visible.
-
-2. LOGO PATH
-
-The round logo will also be uploaded next to index.html.
-
-Use this path:
-
-logo.png
-
-NOT:
-- /images/logo/logo.png
-- images/logo/logo.png
-- ./images/logo/logo.png
-
-3. ABOUT SECTION IMAGE
-
-In the "O nama" section, there is a large image placeholder on the left side.
-
-Keep that image area.
-
-Use this image file path:
-
-onama.png
-
-Important:
-- onama.png will be uploaded directly next to index.html in the GitHub repository root.
-- Do not put it inside an images folder.
-- Do not use /images/onama.png.
-- Do not use images/onama.png.
-
-Use exactly:
-
-onama.png
-
-The "O nama" image area should stay large, attractive, rounded, and consistent with the current design.
-
-4. PRODUCT IMAGES
-
-Product images can stay in a separate folder because there will be many products.
-
-Use this product image path structure:
-
-products/burek-sa-sirom.jpg
-products/kifla.jpg
-products/hleb-beli.jpg
-
-NOT:
-- /images/products/burek-sa-sirom.jpg
-- images/products/burek-sa-sirom.jpg
-- ./images/products/burek-sa-sirom.jpg
-
-So every product object should use:
-
-image: "products/naziv-proizvoda.jpg"
-
-5. CATEGORY IMAGES
-
-If category images are used, place them directly next to index.html for now.
-
-Use:
-
-hleb-peciva.jpg
-burek-slani-program.jpg
-pizza-sendvici.jpg
-kolaci-kafa-pica.jpg
-
-NOT:
-- /images/categories/hleb-peciva.jpg
-- images/categories/hleb-peciva.jpg
-
-6. BAKERY NAME
-
-The correct bakery name is:
-
-Klas 024
-
-Please replace all visible instances of:
-
-Pekara Klas
-
-with:
-
-Klas 024
-
-Apply this to:
-- page title
-- meta description
-- header brand name
-- hero title
-- footer brand name
-- location card names
-- copyright line
-
-Important:
-Write it exactly as:
-
-Klas 024
-
-Do NOT write:
-- Klas0,24
-- Klas 0,24
-- Klas024
-- Klas 0 24
-
-7. REMOVE ALL "NARUČI" BUTTONS
-
-This website is not for online ordering.
-
-It is only a product presentation / bakery menu website showing what the bakery makes.
-
-Remove every button that says:
-
-Naruči
-
-Remove it from:
-- featured product cards
-- full menu product cards
-- any other product card area
-
-Do not replace it with another button.
-
-After removing the button, keep the product card layout clean and balanced.
-
-Each product card should show only:
-- product image
-- product category tag
-- product name
-- short description
-- price placeholder: ___ RSD
-
-8. REMOVE "110 PROIZVODA" TEXT FROM WEBSITE
-
-The number 110 was only internal information for building the product array.
-
-Do not display this information anywhere on the live website.
-
-Remove visible text such as:
-
-110 proizvoda
-
-from the menu section or anywhere else.
-
-The section can still be called:
-
-Kompletna ponuda
-
-But do not mention the number of products visually on the page.
-
-9. FOOTER / WEBMASTER CREDIT
-
-At the very bottom of the website footer, add a small professional credit line:
-
-Webmaster i web administracija: www.silverado.pro
-
-Make it small, clean, and elegant.
-
-It should appear at the very bottom under the copyright line or next to it.
-
-The link should be clickable and point to:
-
-https://www.silverado.pro
-
-Use this visible text:
-
-www.silverado.pro
-
-10. DO NOT CHANGE THESE THINGS
-
-Do not change:
-- overall design
-- colors
-- fonts
-- section structure
-- product array structure except image paths
-- category filters
-- search function
-- location cards except bakery name
-- product names
-- product prices
-- product categories
-- layout spacing
-- mobile responsiveness
-
-11. OUTPUT REQUIREMENT
-
-Return the full corrected index.html from top to bottom so I can copy-paste it into my website editor.
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Klas 024 — Sveže iz peći, svaki dan</title>
+<meta name="description" content="Klas 024 — sveže pecivo, hleb, pizza, kolači i kafa. Tri lokacije, premium ukus svaki dan." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg-2:#15151a;
+    --bg-3:#1c1c22;
+    --line:#2a2a32;
+    --text:#f3ece1;
+    --muted:#a8a195;
+    --red:#e3122b;
+    --red-2:#b80e22;
+    --gold:#e9b949;
+    --cream:#f7e9c9;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 24px}
+  .lobster{font-family:'Lobster',cursive;font-weight:400;letter-spacing:.5px}
+  .red{color:var(--red)}
+  .gold{color:var(--gold)}
+
+  /* HEADER */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,14,16,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:78px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:54px;height:54px;border-radius:50%;
+    background:#000 center/cover no-repeat url('logo.png');
+    border:2px solid var(--red);
+    box-shadow:0 0 0 3px rgba(227,18,43,.15);
+  }
+  .brand-name{font-family:'Lobster';font-size:24px;color:var(--cream)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{
+    font-weight:600;font-size:14px;letter-spacing:.4px;
+    text-transform:uppercase;color:var(--text);
+    padding:8px 4px;border-bottom:2px solid transparent;
+    transition:.25s;
+  }
+  .nav-links a:hover{color:var(--red);border-color:var(--red)}
+  .btn{
+    display:inline-block;font-weight:700;font-size:14px;
+    padding:12px 22px;border-radius:999px;
+    border:2px solid transparent;cursor:pointer;
+    transition:.25s;letter-spacing:.4px;text-transform:uppercase;
+  }
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-2);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--cream)}
+  .btn-ghost:hover{background:var(--cream);color:#111}
+  .burger{display:none;background:none;border:0;color:var(--text);font-size:28px;cursor:pointer}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:90vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(180deg, rgba(14,14,16,.25) 0%, rgba(14,14,16,.65) 100%),
+      url('bakery-hero.jpg') center/cover no-repeat,
+      linear-gradient(135deg,#1a1a1f,#0a0a0d);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 80%, rgba(227,18,43,.25), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2;padding:80px 0;max-width:780px}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:3px;
+    text-transform:uppercase;color:var(--gold);font-weight:700;
+    padding:8px 14px;border:1px solid var(--gold);border-radius:999px;margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:'Lobster';font-weight:400;
+    font-size:clamp(56px,9vw,118px);
+    line-height:.95;margin:0 0 18px;
+    color:#fff;
+    text-shadow:0 4px 24px rgba(0,0,0,.6);
+  }
+  .hero h1 span{color:var(--red)}
+  .hero .sub{font-size:clamp(18px,2vw,22px);color:var(--cream);max-width:620px;margin:0 0 10px;font-weight:500}
+  .hero .support{font-family:'Lobster';font-size:26px;color:var(--gold);margin-bottom:34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* SECTIONS */
+  section{padding:90px 0}
+  .section-head{text-align:center;margin-bottom:54px}
+  .section-head .eyebrow{margin-bottom:16px}
+  .section-title{
+    font-family:'Lobster';font-weight:400;
+    font-size:clamp(36px,5vw,58px);
+    color:#fff;margin:0 0 12px;
+  }
+  .section-sub{color:var(--muted);max-width:620px;margin:0 auto;font-size:16px}
+
+  /* PRODUCT CARD */
+  .grid{display:grid;gap:24px}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:980px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+
+  .card{
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-3));
+    border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;
+    transition:.3s;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 18px 40px rgba(227,18,43,.18)}
+  .card-img{
+    position:relative;aspect-ratio:4/3;overflow:hidden;
+    background:#000 center/cover no-repeat;
+  }
+  .card-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));
+  }
+  .card-tag{
+    position:absolute;top:12px;left:12px;z-index:2;
+    background:rgba(0,0,0,.6);color:var(--gold);
+    font-size:11px;font-weight:700;letter-spacing:.5px;
+    padding:6px 10px;border-radius:999px;text-transform:uppercase;
+    border:1px solid rgba(233,185,73,.3);
+  }
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card-title{font-weight:800;font-size:16px;margin:0 0 6px;color:#fff;letter-spacing:.2px}
+  .card-desc{color:var(--muted);font-size:13px;margin:0 0 14px;flex:1}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+  .price{font-weight:800;color:var(--red);font-size:16px;letter-spacing:.5px}
+  .card-btn{
+    font-size:12px;font-weight:700;text-transform:uppercase;
+    padding:8px 14px;border-radius:999px;background:#fff;color:#111;
+    transition:.25s;cursor:pointer;border:0;
+  }
+  .card-btn:hover{background:var(--red);color:#fff}
+
+  /* CATEGORIES */
+  .cat-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:4/5;cursor:pointer;border:1px solid var(--line);
+  }
+  .cat-card .bg{
+    position:absolute;inset:0;background:#222 center/cover no-repeat;
+    transition:transform .6s;
+  }
+  .cat-card:hover .bg{transform:scale(1.08)}
+  .cat-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.85) 90%);
+  }
+  .cat-card .label{
+    position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:2;
+  }
+  .cat-card .label .k{font-family:'Lobster';font-size:30px;color:#fff;line-height:1}
+  .cat-card .label .arrow{
+    display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+    color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;
+  }
+
+  /* MENU FILTERS */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px}
+  .chip{
+    background:var(--bg-2);border:1px solid var(--line);
+    color:var(--text);font-weight:600;font-size:13px;
+    padding:10px 18px;border-radius:999px;cursor:pointer;
+    text-transform:uppercase;letter-spacing:.4px;transition:.25s;
+  }
+  .chip:hover{border-color:var(--red);color:#fff}
+  .chip.active{background:var(--red);border-color:var(--red);color:#fff}
+  .search-wrap{max-width:480px;margin:0 auto 36px;position:relative}
+  .search{
+    width:100%;padding:14px 20px;border-radius:999px;
+    background:var(--bg-2);border:1px solid var(--line);
+    color:var(--text);font-family:inherit;font-size:14px;outline:none;
+    transition:.25s;
+  }
+  .search:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(227,18,43,.15)}
+
+  /* ABOUT */
+  .about{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+  .about-img{
+    aspect-ratio:5/4;border-radius:var(--radius);
+    background:#222 center/cover no-repeat url('onama.png');
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .about-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(227,18,43,.2),transparent 60%);
+  }
+  .about h2{font-family:'Lobster';font-size:clamp(36px,5vw,54px);color:#fff;margin:0 0 18px;line-height:1}
+  .about p{color:var(--muted);font-size:16px;margin:0 0 18px}
+
+  /* LOCATIONS */
+  .loc-card{
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-3));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:.3s;
+  }
+  .loc-card:hover{border-color:var(--red);transform:translateY(-4px)}
+  .loc-card h3{font-family:'Lobster';font-size:26px;color:#fff;margin:0 0 16px}
+  .loc-row{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--cream);font-size:14px}
+  .loc-row .ic{color:var(--red);font-weight:800;min-width:18px}
+  .loc-card .btn{margin-top:18px;width:100%;text-align:center}
+
+  /* CONTACT */
+  .contact{
+    background:linear-gradient(135deg,#1a0608,#0e0e10);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .contact-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+  }
+  @media(max-width:880px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.contact-grid{grid-template-columns:1fr}}
+  .contact-item{
+    padding:28px 18px;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:var(--radius);
+  }
+  .contact-item .lbl{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .contact-item .val{color:#fff;font-weight:600;font-size:15px;word-break:break-word}
+  .contact-cta{text-align:center;margin-top:32px}
+
+  /* FOOTER */
+  footer{background:#08080a;padding:60px 0 24px;border-top:1px solid var(--line)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+  @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+  .foot-grid h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px}
+  .foot-grid a,.foot-grid p{color:var(--muted);font-size:14px;display:block;margin:6px 0}
+  .foot-grid a:hover{color:var(--red)}
+  .copy{text-align:center;color:var(--muted);font-size:13px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+  .socials{display:flex;gap:10px;margin-top:8px}
+  .socials a{
+    width:38px;height:38px;border-radius:50%;background:var(--bg-2);
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);transition:.25s;font-weight:800;font-size:12px;color:var(--cream)
+  }
+  .socials a:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+  /* MOBILE NAV */
+  @media(max-width:880px){
+    .nav-links,.nav .btn-primary{display:none}
+    .burger{display:block}
+    .nav-links.open{
+      display:flex;flex-direction:column;gap:14px;
+      position:absolute;top:78px;left:0;right:0;
+      background:#0e0e10;padding:20px 24px;border-bottom:1px solid var(--line);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo" aria-label="Klas 024 logo"></div>
+      <div class="brand-name">Klas 024</div>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#pocetna">Početna</a>
+      <a href="#najtrazenije">Najtraženije</a>
+      <a href="#kategorije">Kategorije</a>
+      <a href="#meni">Meni</a>
+      <a href="#lokacije">Lokacije</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="btn btn-primary">Kontakt</a>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="pocetna" class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Sveže iz peći · od 1995.</span>
+    <h1>Klas <span>024</span></h1>
+    <p class="sub">Sveže pecivo, hleb, pizza, kolači i kafa svaki dan.</p>
+    <p class="support lobster">Ukus koji se vraća svakog dana</p>
+    <div class="hero-cta">
+      <a href="#meni" class="btn btn-primary">Pogledaj meni</a>
+      <a href="#lokacije" class="btn btn-ghost">Naše lokacije</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section id="najtrazenije">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Bestseller</span>
+      <h2 class="section-title">Najtraženije iz naše pekare</h2>
+      <p class="section-sub">Omiljeni proizvodi naših kupaca — sveže pripremljeno, svaki dan u sve tri lokacije.</p>
+    </div>
+    <div id="featuredGrid" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="kategorije" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Naše kategorije</span>
+      <h2 class="section-title">Sve što tražite na jednom mestu</h2>
+    </div>
+    <div class="grid grid-4" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="meni">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kompletna ponuda</span>
+      <h2 class="section-title">Kompletna ponuda</h2>
+      <p class="section-sub">Pretražite naš celokupan asortiman ili filtrirajte po kategoriji.</p>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" class="search" type="text" placeholder="Pretraži proizvode..." />
+    </div>
+    <div class="filters" id="filters"></div>
+    <div id="menuGrid" class="grid grid-4"></div>
+    <p id="empty" style="text-align:center;color:var(--muted);margin-top:30px;display:none">Nema rezultata za vašu pretragu.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container about-grid">
+    <div class="about-img"></div>
+    <div>
+      <span class="eyebrow">O nama</span>
+      <h2>Sveže iz peći, svaki dan</h2>
+      <p>U Klas 024 svakog dana pripremamo svež hleb, peciva, slani program, pizze, kolače i kafu za poneti. Naša ponuda je napravljena za brz doručak, porodičnu kupovinu, pauzu na poslu ili uživanje uz sveže pecivo i dobru kafu.</p>
+      <a href="#meni" class="btn btn-primary">Istraži ponudu</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="lokacije" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">3 lokacije</span>
+      <h2 class="section-title">Naše lokacije</h2>
+      <p class="section-sub">Posetite nas — uvek u blizini, uvek sveže.</p>
+    </div>
+    <div class="grid grid-3" id="locGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Stupite u kontakt</span>
+      <h2 class="section-title">Pišite nam ili nas pozovite</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item"><div class="lbl">Telefon</div><div class="val">Unesite telefon</div></div>
+      <div class="contact-item"><div class="lbl">Email</div><div class="val">Unesite email</div></div>
+      <div class="contact-item"><div class="lbl">Facebook</div><div class="val"><a href="#">@pekara.klas</a></div></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><div class="val"><a href="#">@pekara.klas</a></div></div>
+    </div>
+    <div class="contact-cta">
+      <a href="#" class="btn btn-primary">Kontaktirajte nas</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px">
+        <div class="logo"></div>
+        <div class="brand-name">Klas 024</div>
+      </div>
+      <p>Sveže pecivo, hleb, pizza, kolači i kafa — svaki dan. Ukus koji se vraća.</p>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+        <a href="#" aria-label="TikTok">Tt</a>
+      </div>
+    </div>
+    <div>
+      <h4>Brzi linkovi</h4>
+      <a href="#pocetna">Početna</a>
+      <a href="#najtrazenije">Najtraženije</a>
+      <a href="#meni">Meni</a>
+      <a href="#lokacije">Lokacije</a>
+    </div>
+    <div>
+      <h4>Kategorije</h4>
+      <a href="#meni">Hleb i peciva</a>
+      <a href="#meni">Burek i slani program</a>
+      <a href="#meni">Pizza i sendviči</a>
+      <a href="#meni">Kolači, kafa i pića</a>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p>Telefon: Unesite telefon</p>
+      <p>Email: Unesite email</p>
+      <p>3 lokacije u gradu</p>
+    </div>
+  </div>
+  <div class="container copy">© <span id="yr"></span> Klas 024. Sva prava zadržana.<br/><span style="font-size:12px;opacity:.75">Webmaster i web administracija: <a href="https://www.silverado.pro" target="_blank" rel="noopener" style="color:var(--gold)">www.silverado.pro</a></span></div>
+</footer>
+
+<script>
+/* ============================
+   PRODUCT DATA — single source
+   Edit name / price / image here
+============================ */
+const CATEGORIES = ["Hleb i peciva","Burek i slani program","Pizza i sendviči","Kolači, kafa i pića"];
+
+function slugify(s){
+  return s.toLowerCase()
+    .replace(/č/g,'c').replace(/ć/g,'c').replace(/ž/g,'z').replace(/š/g,'s').replace(/đ/g,'dj')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+const RAW = [
+  // Hleb i peciva (30)
+  ["Hleb beli","Mekan beli hleb, pečen svežih svaki dan.",true],
+  ["Hleb crni","Tamni hleb sa raženim brašnom.",false],
+  ["Hleb integralni","Bogat vlaknima, zdrav izbor.",false],
+  ["Hleb seljački","Tradicionalni hleb sa hrskavom korom.",false],
+  ["Hleb kukuruzni","Slatkast hleb sa kukuruznim brašnom.",false],
+  ["Hleb sa semenkama","Mix semenki suncokreta, bundeve i lana.",false],
+  ["Hleb bezglutenski","Za posebne dijetalne potrebe.",false],
+  ["Pogača domaća","Mekana pogača idealna uz sve.",false],
+  ["Pogača sa susamom","Pogača posuta hrskavim susamom.",false],
+  ["Kifla obična","Klasična mekana kifla.",true],
+  ["Kifla sa susamom","Kifla posuta susamom.",false],
+  ["Kifla sa kimom","Aromatična kifla sa kimom.",false],
+  ["Kifla sa sirom","Punjena kremastim sirom.",false],
+  ["Kifla sa kobasicom","Topli zalogaj sa kobasicom.",false],
+  ["Pereca slana","Hrskava slana pereca.",false],
+  ["Pereca sa sirom","Pereca punjena sirom.",false],
+  ["Štangla","Hrskava i lagana štangla.",false],
+  ["Štangla sa susamom","Štangla sa susamom.",false],
+  ["Đevrek","Tradicionalni đevrek sa susamom.",false],
+  ["Mlečni hlepčić","Mekan i mlečan hlepčić.",false],
+  ["Mlečno pecivo","Lagano slatkasto pecivo.",false],
+  ["Pecivo sa maslinama","Mediteranski stil sa maslinama.",false],
+  ["Pecivo sa lukom","Aromatično pecivo sa karamelizovanim lukom.",false],
+  ["Pletenica","Lepa pletenica, mekana iznutra.",false],
+  ["Bagel klasik","Hrskav spolja, mekan iznutra.",false],
+  ["Cijabata","Italijanska cijabata, lagana.",false],
+  ["Bageta francuska","Klasična francuska bageta.",false],
+  ["Mini pogačice","Idealne za doručak i grickanje.",false],
+  ["Hleb sa orasima","Hleb obogaćen orasima.",false],
+  ["Hleb sa maslinama","Mekan hleb sa zelenim maslinama.",false],
+
+  // Burek i slani program (30)
+  ["Burek sa sirom","Hrskav burek punjen sirom.",true],
+  ["Burek sa mesom","Sočan burek sa mlevenim mesom.",false],
+  ["Burek sa krompirom","Tradicionalni burek sa krompirom.",false],
+  ["Burek sa spanaćem","Lagani burek sa spanaćem i sirom.",false],
+  ["Burek sa pečurkama","Burek punjen pečurkama.",true],
+  ["Burek prazan","Klasičan jufka burek bez fila.",false],
+  ["Gibanica","Sočna gibanica sa sirom.",false],
+  ["Zeljanica","Pita sa spanaćem i sirom.",false],
+  ["Krompiruša","Pita sa krompirom i lukom.",false],
+  ["Sirnica","Pita sa kremastim sirom.",false],
+  ["Mesnica","Pita sa sočnim mesom.",false],
+  ["Tikvenik","Slatka pita sa tikvama.",false],
+  ["Štrudla sa sirom","Štrudla sa kremastim filom.",false],
+  ["Štrudla sa mesom","Slana štrudla sa mesom.",false],
+  ["Pita od jabuka","Klasična slatka pita.",false],
+  ["Mini burek","Burek u manjem pakovanju.",false],
+  ["Proja","Tradicionalna proja sa sirom.",false],
+  ["Pogačice sa sirom","Mini pogačice sa sirom.",false],
+  ["Pogačice sa čvarcima","Aromatične sa čvarcima.",false],
+  ["Pogačice sa kajmakom","Sočne sa kajmakom.",false],
+  ["Kifla sa pizzom","Slan zalogaj pizza stila.",false],
+  ["Mafin slani","Slani mafin sa sirom.",false],
+  ["Slana štangla","Hrskava i ukusna.",false],
+  ["Krofna slana","Slana krofna sa sirom.",false],
+  ["Pita sa pilećim mesom","Sočna pita.",false],
+  ["Pita sa povrćem","Lagana pita sa sezonskim povrćem.",false],
+  ["Cigare sa sirom","Hrskave cigare punjene sirom.",false],
+  ["Rolnice sa sirom","Mekane rolnice sa sirom.",false],
+  ["Rolnice sa šunkom","Rolnice sa šunkom i sirom.",false],
+  ["Kroasan slani","Slani kroasan sa šunkom i sirom.",false],
+
+  // Pizza i sendviči (25)
+  ["Pica parče Margarita","Klasik sa paradajzom i sirom.",true],
+  ["Pica parče Capricciosa","Šunka, pečurke, masline.",false],
+  ["Pica parče Quattro Formaggi","Četiri vrste sira.",false],
+  ["Pica parče Pepperoni","Ljuta kobasica i sir.",true],
+  ["Pica parče Vegetariana","Sezonsko povrće.",false],
+  ["Pica parče Funghi","Pečurke i mocarela.",false],
+  ["Pica parče Diavola","Ljuta pica sa salamom.",false],
+  ["Mini pica","Mala pica za jedan zalogaj.",false],
+  ["Sendvič sa šunkom","Šunka, sir, povrće.",true],
+  ["Sendvič sa piletinom","Sočan pileći sendvič.",false],
+  ["Sendvič tunjevina","Tunjevina, jaje, povrće.",false],
+  ["Sendvič vegetarijanski","Bez mesa, sa povrćem i sirom.",false],
+  ["Sendvič klub","Tri sloja punjenja.",false],
+  ["Sendvič sa pršutom","Italijanski stil.",false],
+  ["Sendvič sa kulenom","Aromatična kobasica.",false],
+  ["Tortilja sa piletinom","Topla tortilja sa piletinom.",false],
+  ["Tortilja sa govedinom","Sočna tortilja sa govedinom.",false],
+  ["Hot dog klasik","Klasičan hot dog.",false],
+  ["Hot dog specijal","Sa svim dodacima.",false],
+  ["Hamburger","Sočan hamburger sa povrćem.",false],
+  ["Čizburger","Sa duplom porcijom sira.",false],
+  ["Panini sa sirom","Topao panini.",false],
+  ["Panini sa šunkom","Hrskav i topao.",false],
+  ["Pljeskavica u lepinji","Tradicija u modernom izdanju.",false],
+  ["Lepinja sa kajmakom","Topla lepinja sa kajmakom.",false],
+
+  // Kolači, kafa i pića (25)
+  ["Kroasan sa čokoladom","Maslačani kroasan sa čokoladom.",true],
+  ["Kroasan obični","Klasičan francuski kroasan.",false],
+  ["Kroasan sa marmeladom","Sa filom od kajsije.",false],
+  ["Kroasan sa vanilom","Krema od vanile.",false],
+  ["Mafin čokoladni","Mekan, sa komadićima čokolade.",false],
+  ["Mafin sa borovnicama","Voćni mafin.",false],
+  ["Donut glazura","Šećerna glazura.",false],
+  ["Donut čokolada","Sa čokoladnom glazurom.",false],
+  ["Krempita","Tradicionalna krempita.",false],
+  ["Šampita","Lagana i mekana.",false],
+  ["Princes krofna","Punjena šlagom.",false],
+  ["Tiramisu","Italijanski klasik.",false],
+  ["Cheesecake","Kremasti čizkejk.",false],
+  ["Brownie","Bogati čokoladni kolač.",false],
+  ["Makarons","Francuski poslastica.",false],
+  ["Cake pop","Sladak zalogaj na štapiću.",false],
+  ["Kafa za poneti","Espresso, mlevena svežih zrna.",true],
+  ["Cappuccino","Sa kremastom mlečnom penom.",false],
+  ["Caffe latte","Mleko i nežna espresso baza.",false],
+  ["Macchiato","Espresso sa mlekom.",false],
+  ["Topla čokolada","Bogata i kremasta.",false],
+  ["Čaj","Razne vrste, biraj po želji.",false],
+  ["Sok prirodni","Cedjen od svežeg voća.",false],
+  ["Voda 0.5L","Negazirana voda.",false],
+  ["Gazirani sok","Razni ukusi.",false],
+];
+
+const PRODUCTS = [];
+let idx = 1;
+const slots = [
+  {cat:CATEGORIES[0], count:30},
+  {cat:CATEGORIES[1], count:30},
+  {cat:CATEGORIES[2], count:25},
+  {cat:CATEGORIES[3], count:25},
+];
+let pos = 0;
+slots.forEach(s=>{
+  for(let i=0;i<s.count;i++){
+    const row = RAW[pos++];
+    const name = row[0];
+    const slug = slugify(name);
+    PRODUCTS.push({
+      id: idx++,
+      name,
+      slug,
+      category: s.cat,
+      description: row[1],
+      price: "___ RSD",
+      image: `products/${slug}.jpg`,
+      featured: !!row[2]
+    });
+  }
+});
+
+/* ============================
+   LOCATIONS — single source
+============================ */
+const LOCATIONS = [
+  {name:"Klas 024 - Lokacija 1", address:"Unesite adresu prve lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
+  {name:"Klas 024 - Lokacija 2", address:"Unesite adresu druge lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
+  {name:"Klas 024 - Lokacija 3", address:"Unesite adresu treće lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
+];
+
+/* ============================
+   RENDER
+============================ */
+function cardHTML(p){
+  return `
+    <article class="card" data-cat="${p.category}" data-name="${p.name.toLowerCase()}">
+      <div class="card-img" style="background-image:url('${p.image}')">
+        <span class="card-tag">${p.category}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${p.name}</h3>
+        <p class="card-desc">${p.description}</p>
+        <div class="card-foot">
+          <span class="price">${p.price}</span>
+        </div>
+      </div>
+    </article>`;
+}
+
+// Featured (first 8 with featured:true)
+const featured = PRODUCTS.filter(p=>p.featured).slice(0,8);
+document.getElementById('featuredGrid').innerHTML = featured.map(cardHTML).join('');
+
+// Categories
+const CAT_IMG = {
+  "Hleb i peciva":"hleb-peciva.jpg",
+  "Burek i slani program":"burek-slani-program.jpg",
+  "Pizza i sendviči":"pizza-sendvici.jpg",
+  "Kolači, kafa i pića":"kolaci-kafa-pica.jpg",
+};
+document.getElementById('catGrid').innerHTML = CATEGORIES.map(c=>`
+  <a class="cat-card" href="#meni" data-filter="${c}">
+    <div class="bg" style="background-image:url('${CAT_IMG[c]}')"></div>
+    <div class="label">
+      <div class="k">${c}</div>
+      <div class="arrow">Pogledaj ponudu →</div>
+    </div>
+  </a>
+`).join('');
+
+// Filters
+const ALL = "Sve";
+const filterCats = [ALL, ...CATEGORIES];
+const filtersEl = document.getElementById('filters');
+filtersEl.innerHTML = filterCats.map((c,i)=>
+  `<button class="chip ${i===0?'active':''}" data-cat="${c}">${c}</button>`
+).join('');
+
+// Menu
+const menuGrid = document.getElementById('menuGrid');
+function renderMenu(){
+  const active = document.querySelector('.chip.active').dataset.cat;
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const list = PRODUCTS.filter(p=>
+    (active===ALL || p.category===active) &&
+    (q==="" || p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q))
+  );
+  menuGrid.innerHTML = list.map(cardHTML).join('');
+  document.getElementById('empty').style.display = list.length? 'none':'block';
+}
+renderMenu();
+
+filtersEl.addEventListener('click', e=>{
+  if(!e.target.classList.contains('chip')) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  e.target.classList.add('active');
+  renderMenu();
+});
+document.getElementById('searchInput').addEventListener('input', renderMenu);
+
+// Category quick-jump
+document.querySelectorAll('.cat-card').forEach(el=>{
+  el.addEventListener('click', e=>{
+    const cat = el.dataset.filter;
+    document.querySelectorAll('.chip').forEach(c=>{
+      c.classList.toggle('active', c.dataset.cat===cat);
+    });
+    renderMenu();
+  });
+});
+
+// Locations
+document.getElementById('locGrid').innerHTML = LOCATIONS.map(l=>`
+  <div class="loc-card">
+    <h3>${l.name}</h3>
+    <div class="loc-row"><span class="ic">●</span><span>${l.address}</span></div>
+    <div class="loc-row"><span class="ic">☎</span><span>${l.phone}</span></div>
+    <div class="loc-row"><span class="ic">⏰</span><span>${l.hours}</span></div>
+    <a class="btn btn-primary" href="${l.map}" target="_blank" rel="noopener">Otvori u Google Maps</a>
+  </div>
+`).join('');
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Close mobile nav on click
+document.querySelectorAll('#navLinks a').forEach(a=>{
+  a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>
