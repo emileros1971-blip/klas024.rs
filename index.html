@@ -446,162 +446,88 @@
 <script>
 /* ============================
    PRODUCT DATA — single source
-   Edit name / price / image here
 ============================ */
 const CATEGORIES = ["Hleb i peciva","Burek i slani program","Pizza i sendviči","Kolači, kafa i pića"];
 
-function slugify(s){
-  return s.toLowerCase()
-    .replace(/č/g,'c').replace(/ć/g,'c').replace(/ž/g,'z').replace(/š/g,'s').replace(/đ/g,'dj')
-    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-}
+const DESC = "Sveže pripremljeno iz naše pekare.";
 
-const RAW = [
-  // Hleb i peciva (30)
-  ["Hleb beli","Mekan beli hleb, pečen svežih svaki dan.",true],
-  ["Hleb crni","Tamni hleb sa raženim brašnom.",false],
-  ["Hleb integralni","Bogat vlaknima, zdrav izbor.",false],
-  ["Hleb seljački","Tradicionalni hleb sa hrskavom korom.",false],
-  ["Hleb kukuruzni","Slatkast hleb sa kukuruznim brašnom.",false],
-  ["Hleb sa semenkama","Mix semenki suncokreta, bundeve i lana.",false],
-  ["Hleb bezglutenski","Za posebne dijetalne potrebe.",false],
-  ["Pogača domaća","Mekana pogača idealna uz sve.",false],
-  ["Pogača sa susamom","Pogača posuta hrskavim susamom.",false],
-  ["Kifla obična","Klasična mekana kifla.",true],
-  ["Kifla sa susamom","Kifla posuta susamom.",false],
-  ["Kifla sa kimom","Aromatična kifla sa kimom.",false],
-  ["Kifla sa sirom","Punjena kremastim sirom.",false],
-  ["Kifla sa kobasicom","Topli zalogaj sa kobasicom.",false],
-  ["Pereca slana","Hrskava slana pereca.",false],
-  ["Pereca sa sirom","Pereca punjena sirom.",false],
-  ["Štangla","Hrskava i lagana štangla.",false],
-  ["Štangla sa susamom","Štangla sa susamom.",false],
-  ["Đevrek","Tradicionalni đevrek sa susamom.",false],
-  ["Mlečni hlepčić","Mekan i mlečan hlepčić.",false],
-  ["Mlečno pecivo","Lagano slatkasto pecivo.",false],
-  ["Pecivo sa maslinama","Mediteranski stil sa maslinama.",false],
-  ["Pecivo sa lukom","Aromatično pecivo sa karamelizovanim lukom.",false],
-  ["Pletenica","Lepa pletenica, mekana iznutra.",false],
-  ["Bagel klasik","Hrskav spolja, mekan iznutra.",false],
-  ["Cijabata","Italijanska cijabata, lagana.",false],
-  ["Bageta francuska","Klasična francuska bageta.",false],
-  ["Mini pogačice","Idealne za doručak i grickanje.",false],
-  ["Hleb sa orasima","Hleb obogaćen orasima.",false],
-  ["Hleb sa maslinama","Mekan hleb sa zelenim maslinama.",false],
+const PRODUCTS = [
+  // ===== Hleb i peciva =====
+  { id: 1,  name: "Bakin hleb",        category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Hleb i peciva/Bakin hleb.png",        featured: true  },
+  { id: 2,  name: "Bavarska kifla so", category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Hleb i peciva/Bavarska kifla.png",    featured: false },
+  { id: 3,  name: "Bavarska susam",    category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Hleb i peciva/Bavarska susam.png",    featured: false },
+  { id: 4,  name: "Dansko pecivo",     category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Dansko pecivo.png",     featured: false },
+  { id: 5,  name: "Domaća ćabata",     category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Hleb i peciva/Domaca cibata.png",     featured: true  },
+  { id: 6,  name: "Durum hleb",        category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Hleb i peciva/Durum hleb.png",        featured: false },
+  { id: 7,  name: "Hleb",              category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Hleb.png",              featured: true  },
+  { id: 8,  name: "Hleb kalup",        category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Hleb kalup.png",        featured: false },
+  { id: 9,  name: "Hrono hleb",        category: "Hleb i peciva", description: DESC, price: "70 RSD",  image: "Hleb i peciva/Hrono hleb.png",        featured: false },
+  { id: 10, name: "Integralna kifla",  category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Hleb i peciva/Integralna kifla.png",  featured: false },
+  { id: 11, name: "Kečap kifla",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Kecap kifla.png",       featured: false },
+  { id: 12, name: "Kečap viršla",      category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Kecap virsla.png",      featured: false },
+  { id: 13, name: "Kifla krem",        category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Kifla krem.png",        featured: false },
+  { id: 14, name: "Kifla slatka",      category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Hleb i peciva/Kifla slatka.png",      featured: false },
+  { id: 15, name: "Lisnato jabuka",    category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Lisnato jabuka.png",    featured: false },
+  { id: 16, name: "Lisnato kakao",     category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Lisnato kakao.png",     featured: false },
+  { id: 17, name: "Lisnato mak",       category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Lisnato mak.png",       featured: false },
+  { id: 18, name: "Lisnato sir",       category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Lisnato sir.png",       featured: false },
+  { id: 19, name: "Lisnato viršla",    category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Hleb i peciva/Lisnato virsla.png",    featured: false },
+  { id: 20, name: "Mala lepinja",      category: "Hleb i peciva", description: DESC, price: "80 RSD",  image: "Hleb i peciva/Mala lepinja.png",      featured: false },
+  { id: 21, name: "Pletenica",         category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Hleb i peciva/Pletenica.png",         featured: false },
+  { id: 22, name: "Pogačica sir",      category: "Hleb i peciva", description: DESC, price: "800 RSD / kg", image: "Hleb i peciva/Pogacice sir kg.png", featured: false },
+  { id: 23, name: "Prstići",           category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Hleb i peciva/Prstici.png",           featured: false },
+  { id: 24, name: "Ruža hleb cvet",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Ruza hlep cvet.png",    featured: false },
+  { id: 25, name: "Sečeni hleb",       category: "Hleb i peciva", description: DESC, price: "95 RSD",  image: "Hleb i peciva/Seceni hleb.png",       featured: false },
+  { id: 26, name: "Slana kifla",       category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Hleb i peciva/Slana kifla.png",       featured: false },
+  { id: 27, name: "Slavski kolač",     category: "Hleb i peciva", description: DESC, price: "600 RSD", image: "Hleb i peciva/Slavski kolac.png",     featured: false },
+  { id: 28, name: "Srce sir",          category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Srce sir.png",          featured: false },
+  { id: 29, name: "Štrudla jabuka",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Strudla jabuka.png",    featured: false },
+  { id: 30, name: "Štrudla mak",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Strudla mak.png",       featured: false },
+  { id: 31, name: "Štrudla sir",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Strudla sir.png",       featured: false },
+  { id: 32, name: "Testo",             category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb i peciva/Testo.png",             featured: false },
 
-  // Burek i slani program (30)
-  ["Burek sa sirom","Hrskav burek punjen sirom.",true],
-  ["Burek sa mesom","Sočan burek sa mlevenim mesom.",false],
-  ["Burek sa krompirom","Tradicionalni burek sa krompirom.",false],
-  ["Burek sa spanaćem","Lagani burek sa spanaćem i sirom.",false],
-  ["Burek sa pečurkama","Burek punjen pečurkama.",true],
-  ["Burek prazan","Klasičan jufka burek bez fila.",false],
-  ["Gibanica","Sočna gibanica sa sirom.",false],
-  ["Zeljanica","Pita sa spanaćem i sirom.",false],
-  ["Krompiruša","Pita sa krompirom i lukom.",false],
-  ["Sirnica","Pita sa kremastim sirom.",false],
-  ["Mesnica","Pita sa sočnim mesom.",false],
-  ["Tikvenik","Slatka pita sa tikvama.",false],
-  ["Štrudla sa sirom","Štrudla sa kremastim filom.",false],
-  ["Štrudla sa mesom","Slana štrudla sa mesom.",false],
-  ["Pita od jabuka","Klasična slatka pita.",false],
-  ["Mini burek","Burek u manjem pakovanju.",false],
-  ["Proja","Tradicionalna proja sa sirom.",false],
-  ["Pogačice sa sirom","Mini pogačice sa sirom.",false],
-  ["Pogačice sa čvarcima","Aromatične sa čvarcima.",false],
-  ["Pogačice sa kajmakom","Sočne sa kajmakom.",false],
-  ["Kifla sa pizzom","Slan zalogaj pizza stila.",false],
-  ["Mafin slani","Slani mafin sa sirom.",false],
-  ["Slana štangla","Hrskava i ukusna.",false],
-  ["Krofna slana","Slana krofna sa sirom.",false],
-  ["Pita sa pilećim mesom","Sočna pita.",false],
-  ["Pita sa povrćem","Lagana pita sa sezonskim povrćem.",false],
-  ["Cigare sa sirom","Hrskave cigare punjene sirom.",false],
-  ["Rolnice sa sirom","Mekane rolnice sa sirom.",false],
-  ["Rolnice sa šunkom","Rolnice sa šunkom i sirom.",false],
-  ["Kroasan slani","Slani kroasan sa šunkom i sirom.",false],
+  // ===== Burek i slani program =====
+  { id: 33, name: "Beli luk štapić",          category: "Burek i slani program", description: DESC, price: "Cena uskoro", image: "Burek i slani program/Beli luk stapic.png", featured: false },
+  { id: 34, name: "Bufla senf",               category: "Burek i slani program", description: DESC, price: "90 RSD",  image: "Burek i slani program/Bufla sent.png",          featured: false },
+  { id: 35, name: "Burek jabuka",             category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Burek i slani program/Burek jabuka.png",        featured: false },
+  { id: 36, name: "Burek krompir",            category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek i slani program/Burek krompir.png",       featured: false },
+  { id: 37, name: "Burek meso",               category: "Burek i slani program", description: DESC, price: "250 RSD", image: "Burek i slani program/Burek meso.png",          featured: true  },
+  { id: 38, name: "Burek piletina",           category: "Burek i slani program", description: DESC, price: "290 RSD", image: "Burek i slani program/Burek piletina.png",      featured: false },
+  { id: 39, name: "Burek sa sirom",           category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek i slani program/Burek sa sirom.png",      featured: true  },
+  { id: 40, name: "Burek šunka",              category: "Burek i slani program", description: DESC, price: "270 RSD", image: "Burek i slani program/Burek sunka.png",         featured: false },
+  { id: 41, name: "Đevrek slanina",           category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Burek i slani program/Djevrek slanina.png",     featured: false },
+  { id: 42, name: "Kukuruzna pita šunka",     category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Burek i slani program/Kukuruzan pita sunka.png",featured: false },
+  { id: 43, name: "Lisnato kulen",            category: "Burek i slani program", description: DESC, price: "120 RSD", image: "Burek i slani program/Lisnato kulen.png",       featured: false },
+  { id: 44, name: "Lisnato paprika",          category: "Burek i slani program", description: DESC, price: "60 RSD",  image: "Burek i slani program/Lisnato paprika.png",     featured: false },
+  { id: 45, name: "Lisnato piletina",         category: "Burek i slani program", description: DESC, price: "60 RSD",  image: "Burek i slani program/Lisnato piletina.png",    featured: false },
+  { id: 46, name: "Mekika",                   category: "Burek i slani program", description: DESC, price: "70 RSD",  image: "Burek i slani program/Mekkika.png",             featured: false },
+  { id: 47, name: "Piroška šunka",            category: "Burek i slani program", description: DESC, price: "170 RSD", image: "Burek i slani program/Piroska sunka.png",       featured: false },
+  { id: 48, name: "Pita feta sir",            category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Burek i slani program/Pita feta sir.png",       featured: false },
+  { id: 49, name: "Pita spanać",              category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Burek i slani program/Pita spanac.png",         featured: false },
+  { id: 50, name: "Pogačica sa čvarcima",     category: "Burek i slani program", description: DESC, price: "90 RSD",  image: "Burek i slani program/Pogacica sa cvarcima.png",featured: false },
 
-  // Pizza i sendviči (25)
-  ["Pica parče Margarita","Klasik sa paradajzom i sirom.",true],
-  ["Pica parče Capricciosa","Šunka, pečurke, masline.",false],
-  ["Pica parče Quattro Formaggi","Četiri vrste sira.",false],
-  ["Pica parče Pepperoni","Ljuta kobasica i sir.",true],
-  ["Pica parče Vegetariana","Sezonsko povrće.",false],
-  ["Pica parče Funghi","Pečurke i mocarela.",false],
-  ["Pica parče Diavola","Ljuta pica sa salamom.",false],
-  ["Mini pica","Mala pica za jedan zalogaj.",false],
-  ["Sendvič sa šunkom","Šunka, sir, povrće.",true],
-  ["Sendvič sa piletinom","Sočan pileći sendvič.",false],
-  ["Sendvič tunjevina","Tunjevina, jaje, povrće.",false],
-  ["Sendvič vegetarijanski","Bez mesa, sa povrćem i sirom.",false],
-  ["Sendvič klub","Tri sloja punjenja.",false],
-  ["Sendvič sa pršutom","Italijanski stil.",false],
-  ["Sendvič sa kulenom","Aromatična kobasica.",false],
-  ["Tortilja sa piletinom","Topla tortilja sa piletinom.",false],
-  ["Tortilja sa govedinom","Sočna tortilja sa govedinom.",false],
-  ["Hot dog klasik","Klasičan hot dog.",false],
-  ["Hot dog specijal","Sa svim dodacima.",false],
-  ["Hamburger","Sočan hamburger sa povrćem.",false],
-  ["Čizburger","Sa duplom porcijom sira.",false],
-  ["Panini sa sirom","Topao panini.",false],
-  ["Panini sa šunkom","Hrskav i topao.",false],
-  ["Pljeskavica u lepinji","Tradicija u modernom izdanju.",false],
-  ["Lepinja sa kajmakom","Topla lepinja sa kajmakom.",false],
+  // ===== Pizza i sendviči =====
+  { id: 51, name: "Pizza kukuruz",            category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza i sendviči/Pizza kukuruz.png", featured: false },
+  { id: 52, name: "Pizza parče (gljivama)",   category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza i sendviči/Pizza gljive.png",  featured: true  },
+  { id: 53, name: "Pizza parče kulen",        category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza i sendviči/Pizza kulne.png",   featured: false },
+  { id: 54, name: "Pomfrit",                  category: "Pizza i sendviči", description: DESC, price: "200 RSD", image: "Pizza i sendviči/Pomfrit.png",       featured: false },
+  { id: 55, name: "Tortilje",                 category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "Pizza i sendviči/Tortilje.png",      featured: false },
 
-  // Kolači, kafa i pića (25)
-  ["Kroasan sa čokoladom","Maslačani kroasan sa čokoladom.",true],
-  ["Kroasan obični","Klasičan francuski kroasan.",false],
-  ["Kroasan sa marmeladom","Sa filom od kajsije.",false],
-  ["Kroasan sa vanilom","Krema od vanile.",false],
-  ["Mafin čokoladni","Mekan, sa komadićima čokolade.",false],
-  ["Mafin sa borovnicama","Voćni mafin.",false],
-  ["Donut glazura","Šećerna glazura.",false],
-  ["Donut čokolada","Sa čokoladnom glazurom.",false],
-  ["Krempita","Tradicionalna krempita.",false],
-  ["Šampita","Lagana i mekana.",false],
-  ["Princes krofna","Punjena šlagom.",false],
-  ["Tiramisu","Italijanski klasik.",false],
-  ["Cheesecake","Kremasti čizkejk.",false],
-  ["Brownie","Bogati čokoladni kolač.",false],
-  ["Makarons","Francuski poslastica.",false],
-  ["Cake pop","Sladak zalogaj na štapiću.",false],
-  ["Kafa za poneti","Espresso, mlevena svežih zrna.",true],
-  ["Cappuccino","Sa kremastom mlečnom penom.",false],
-  ["Caffe latte","Mleko i nežna espresso baza.",false],
-  ["Macchiato","Espresso sa mlekom.",false],
-  ["Topla čokolada","Bogata i kremasta.",false],
-  ["Čaj","Razne vrste, biraj po želji.",false],
-  ["Sok prirodni","Cedjen od svežeg voća.",false],
-  ["Voda 0.5L","Negazirana voda.",false],
-  ["Gazirani sok","Razni ukusi.",false],
+  // ===== Kolači, kafa i pića =====
+  { id: 56, name: "Čajevi",            category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Kolači, kafa i pića/Cajevi.png",            featured: false },
+  { id: 57, name: "Cheesecake",        category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Kolači, kafa i pića/Cheescake.png",         featured: false },
+  { id: 58, name: "Čoko lešnik",       category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Kolači, kafa i pića/Choko lesnik.png",      featured: false },
+  { id: 59, name: "Čokoladna torta",   category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Kolači, kafa i pića/Cokoladna torta.png",   featured: true  },
+  { id: 60, name: "Dubai torta",       category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "Kolači, kafa i pića/Dubai torta.png",       featured: false },
+  { id: 61, name: "Espresso bez mleka",category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Kolači, kafa i pića/Espresso bez mleka.png",featured: true  },
+  { id: 62, name: "Karamel symphoni",  category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Kolači, kafa i pića/Karamel symphony.png",  featured: false },
+  { id: 63, name: "Krempita",          category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Kolači, kafa i pića/Krempita.png",          featured: true  },
+  { id: 64, name: "Krosan krem",       category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Kolači, kafa i pića/Krosan krem.png",       featured: false },
+  { id: 65, name: "Lenja pita jabuka", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Kolači, kafa i pića/Lenja pita jabuka.png", featured: false },
+  { id: 66, name: "Lenja pita krem",   category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Kolači, kafa i pića/Lenja pita krem.png",   featured: false },
+  { id: 67, name: "Lisnato višnja",    category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Kolači, kafa i pića/Lisnato visnja.png",    featured: false },
+  { id: 68, name: "Pita bundeva",      category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "Kolači, kafa i pića/Pita bundeva.png",      featured: false },
 ];
-
-const PRODUCTS = [];
-let idx = 1;
-const slots = [
-  {cat:CATEGORIES[0], count:30},
-  {cat:CATEGORIES[1], count:30},
-  {cat:CATEGORIES[2], count:25},
-  {cat:CATEGORIES[3], count:25},
-];
-let pos = 0;
-slots.forEach(s=>{
-  for(let i=0;i<s.count;i++){
-    const row = RAW[pos++];
-    const name = row[0];
-    const slug = slugify(name);
-    PRODUCTS.push({
-      id: idx++,
-      name,
-      slug,
-      category: s.cat,
-      description: row[1],
-      price: "___ RSD",
-      image: `products/${slug}.jpg`,
-      featured: !!row[2]
-    });
-  }
-});
 
 /* ============================
    LOCATIONS — single source
