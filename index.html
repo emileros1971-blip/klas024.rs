@@ -395,7 +395,7 @@
       <h2 class="section-title">Posetite nas ili nas pratite</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-item"><div class="lbl">Lokacije</div><div class="val">3 lokacije u Subotici</div></div>
+      <div class="contact-item"><div class="lbl">Lokacije</div><div class="val">3 lokacije u Adi</div></div>
       <div class="contact-item"><div class="lbl">Facebook</div><div class="val">@pekara.klas</div></div>
       <div class="contact-item"><div class="lbl">Instagram</div><div class="val">@pekara.klas</div></div>
     </div>
@@ -600,58 +600,18 @@ function cardHTML(p){
 const featured = PRODUCTS.filter(p=>p.featured).slice(0,8);
 document.getElementById('featuredGrid').innerHTML = featured.map(cardHTML).join('');
 
-// Categories — Klas Grill uses inline SVG so no upload required
-const GRILL_SVG = "data:image/svg+xml;utf8," + encodeURIComponent(`
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500' preserveAspectRatio='xMidYMid slice'>
-  <defs>
-    <linearGradient id='bg' x1='0' y1='0' x2='0' y2='1'>
-      <stop offset='0' stop-color='#3a1408'/>
-      <stop offset='1' stop-color='#0e0e10'/>
-    </linearGradient>
-    <radialGradient id='glow' cx='50%' cy='75%' r='55%'>
-      <stop offset='0' stop-color='#e3122b' stop-opacity='.55'/>
-      <stop offset='1' stop-color='#e3122b' stop-opacity='0'/>
-    </radialGradient>
-  </defs>
-  <rect width='400' height='500' fill='url(#bg)'/>
-  <rect width='400' height='500' fill='url(#glow)'/>
-  <!-- flames -->
-  <path d='M70 430 Q90 360 110 400 Q130 340 155 405 Q180 350 200 410 Q220 340 245 405 Q270 350 290 405 Q310 350 330 415 L330 470 L70 470 Z' fill='#e9b949' opacity='.85'/>
-  <path d='M90 440 Q110 380 130 420 Q160 370 195 425 Q230 370 260 425 Q295 375 315 430 L315 470 L90 470 Z' fill='#e3122b' opacity='.9'/>
-  <!-- grill grates -->
-  <g stroke='#1a1a1a' stroke-width='6' opacity='.9'>
-    <line x1='60' y1='455' x2='340' y2='455'/>
-    <line x1='60' y1='468' x2='340' y2='468'/>
-  </g>
-  <!-- burger -->
-  <g transform='translate(200 230)'>
-    <!-- top bun -->
-    <path d='M-110 0 Q-110 -80 0 -80 Q110 -80 110 0 Z' fill='#d99a52'/>
-    <ellipse cx='-40' cy='-50' rx='6' ry='4' fill='#f7e9c9'/>
-    <ellipse cx='10' cy='-65' rx='6' ry='4' fill='#f7e9c9'/>
-    <ellipse cx='55' cy='-45' rx='6' ry='4' fill='#f7e9c9'/>
-    <!-- lettuce -->
-    <path d='M-115 5 Q-90 -8 -60 5 Q-30 -10 0 5 Q30 -10 60 5 Q90 -8 115 5 L115 20 L-115 20 Z' fill='#5fa84a'/>
-    <!-- cheese -->
-    <path d='M-115 22 L115 22 L100 42 Q90 50 70 45 Q40 52 10 46 Q-30 52 -60 45 Q-90 50 -115 42 Z' fill='#f1c84b'/>
-    <!-- patty -->
-    <rect x='-115' y='45' width='230' height='30' rx='10' fill='#6b2a14'/>
-    <!-- bottom bun -->
-    <path d='M-115 75 L115 75 Q115 110 0 110 Q-115 110 -115 75 Z' fill='#c98744'/>
-  </g>
-</svg>
-`);
-
-const CAT_IMG = {
-  "Hleb i peciva":"hleb-peciva.jpg",
-  "Burek i slani program":"burek-slani-program.jpg",
-  "Pizza i sendviči":"pizza-sendvici.jpg",
-  "Kolači, kafa i pića":"kolaci-kafa-pica.jpg",
-  "Klas Grill": GRILL_SVG,
+// Categories
+// Klas Grill uses a premium dark fallback gradient plus the uploaded hamburger product image when available.
+const CAT_BG = {
+  "Hleb i peciva":"url('hleb-peciva.jpg')",
+  "Burek i slani program":"url('burek-slani-program.jpg')",
+  "Pizza i sendviči":"url('pizza-sendvici.jpg')",
+  "Kolači, kafa i pića":"url('kolaci-kafa-pica.jpg')",
+  "Klas Grill":"linear-gradient(135deg, rgba(14,14,16,.55), rgba(227,18,43,.28)), url('Hamburger 150g.png'), linear-gradient(135deg,#3a1408,#0e0e10)",
 };
 document.getElementById('catGrid').innerHTML = CATEGORIES.map(c=>`
   <a class="cat-card" href="#meni" data-filter="${c}">
-    <div class="bg" style="background-image:url(&quot;${CAT_IMG[c]}&quot;)"></div>
+    <div class="bg" style="background-image:${CAT_BG[c]}"></div>
     <div class="label">
       <div class="k">${c}</div>
       <div class="arrow">Pogledaj ponudu →</div>
