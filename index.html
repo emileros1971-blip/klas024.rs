@@ -125,11 +125,13 @@
 
   /* PRODUCT CARD */
   .grid{display:grid;gap:24px}
+  .grid-5{grid-template-columns:repeat(5,1fr)}
   .grid-4{grid-template-columns:repeat(4,1fr)}
   .grid-3{grid-template-columns:repeat(3,1fr)}
   .grid-2{grid-template-columns:repeat(2,1fr)}
-  @media(max-width:980px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+  @media(max-width:1100px){.grid-5{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:980px){.grid-5,.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-5,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
 
   .card{
     background:linear-gradient(180deg,var(--bg-2),var(--bg-3));
@@ -243,7 +245,7 @@
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
   .contact-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;
   }
   @media(max-width:880px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:480px){.contact-grid{grid-template-columns:1fr}}
@@ -339,7 +341,7 @@
       <span class="eyebrow">Naše kategorije</span>
       <h2 class="section-title">Sve što tražite na jednom mestu</h2>
     </div>
-    <div class="grid grid-4" id="catGrid"></div>
+    <div class="grid grid-5" id="catGrid"></div>
   </div>
 </section>
 
@@ -390,16 +392,15 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Stupite u kontakt</span>
-      <h2 class="section-title">Pišite nam ili nas pozovite</h2>
+      <h2 class="section-title">Posetite nas ili nas pratite</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-item"><div class="lbl">Telefon</div><div class="val">Unesite telefon</div></div>
-      <div class="contact-item"><div class="lbl">Email</div><div class="val">Unesite email</div></div>
-      <div class="contact-item"><div class="lbl">Facebook</div><div class="val"><a href="#">@pekara.klas</a></div></div>
-      <div class="contact-item"><div class="lbl">Instagram</div><div class="val"><a href="#">@pekara.klas</a></div></div>
+      <div class="contact-item"><div class="lbl">Lokacije</div><div class="val">3 lokacije u Subotici</div></div>
+      <div class="contact-item"><div class="lbl">Facebook</div><div class="val">@pekara.klas</div></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><div class="val">@pekara.klas</div></div>
     </div>
     <div class="contact-cta">
-      <a href="#" class="btn btn-primary">Kontaktirajte nas</a>
+      <a href="#lokacije" class="btn btn-primary">Pogledajte lokacije</a>
     </div>
   </div>
 </section>
@@ -428,26 +429,33 @@
     </div>
     <div>
       <h4>Kategorije</h4>
-      <a href="#meni">Hleb i peciva</a>
-      <a href="#meni">Burek i slani program</a>
-      <a href="#meni">Pizza i sendviči</a>
-      <a href="#meni">Kolači, kafa i pića</a>
+      <a href="#meni" data-cat-link="Hleb i peciva">Hleb i peciva</a>
+      <a href="#meni" data-cat-link="Burek i slani program">Burek i slani program</a>
+      <a href="#meni" data-cat-link="Pizza i sendviči">Pizza i sendviči</a>
+      <a href="#meni" data-cat-link="Kolači, kafa i pića">Kolači, kafa i pića</a>
+      <a href="#meni" data-cat-link="Klas Grill">Klas Grill</a>
     </div>
     <div>
-      <h4>Kontakt</h4>
-      <p>Telefon: Unesite telefon</p>
-      <p>Email: Unesite email</p>
-      <p>3 lokacije u gradu</p>
+      <h4>Lokacije</h4>
+      <p>Moše Pijade 53</p>
+      <p>Maršala Tita 4</p>
+      <p>Lenjinova 84</p>
     </div>
   </div>
-  <div class="container copy">© <span id="yr"></span> Klas 024. Sva prava zadržana.<br/><span style="font-size:12px;opacity:.75">Webmaster i web administracija: <a href="https://www.silverado.pro" target="_blank" rel="noopener" style="color:var(--gold)">www.silverado.pro</a></span></div>
+  <div class="container copy">© <span id="yr"></span> Klas 024. Sva prava zadržana.<br/><span style="font-size:12px;opacity:.75">Webmaster i web administracija: <a href="https://www.silverado.pro" target="_blank" rel="noopener" style="color:var(--gold)">silverado.pro</a></span></div>
 </footer>
 
 <script>
 /* ============================
    PRODUCT DATA — single source
 ============================ */
-const CATEGORIES = ["Hleb i peciva","Burek i slani program","Pizza i sendviči","Kolači, kafa i pića"];
+const CATEGORIES = [
+  "Hleb i peciva",
+  "Burek i slani program",
+  "Pizza i sendviči",
+  "Kolači, kafa i pića",
+  "Klas Grill"
+];
 
 const DESC = "Sveže pripremljeno iz naše pekare.";
 
@@ -485,6 +493,14 @@ const PRODUCTS = [
   { id: 30, name: "Štrudla mak",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Strudla mak.png",       featured: false },
   { id: 31, name: "Štrudla sir",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Strudla sir.png",       featured: false },
   { id: 32, name: "Testo",             category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Testo.png",             featured: false },
+  // ===== New Hleb i peciva =====
+  { id: 69, name: "Zlatni hleb",       category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Zlatni hleb.png",       featured: false },
+  { id: 70, name: "Zlatna lepinja",    category: "Hleb i peciva", description: DESC, price: "70 RSD",  image: "Zlatna lepinja.png",    featured: false },
+  { id: 71, name: "Banana hleb",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Banana hleb.png",       featured: false },
+  { id: 72, name: "Francuski hleb",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Francuski hleb.png",    featured: false },
+  { id: 73, name: "Perec",             category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Perec.png",             featured: false },
+  { id: 74, name: "Štapić kifla",      category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Stapic kifla.png",      featured: false },
+  { id: 75, name: "Suvi perec",        category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Suvi perec.png",        featured: false },
 
   // ===== Burek i slani program =====
   { id: 33, name: "Beli luk štapić",          category: "Burek i slani program", description: DESC, price: "Cena uskoro", image: "Beli luk stapic.png", featured: false },
@@ -505,6 +521,9 @@ const PRODUCTS = [
   { id: 48, name: "Pita feta sir",            category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita feta sir.png",       featured: false },
   { id: 49, name: "Pita spanać",              category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita spanac.png",         featured: false },
   { id: 50, name: "Pogačica sa čvarcima",     category: "Burek i slani program", description: DESC, price: "90 RSD",  image: "Pogacica sa cvarcima.png",featured: false },
+  // ===== New Burek i slani program =====
+  { id: 76, name: "Grissine Viktor 100 g",    category: "Burek i slani program", description: DESC, price: "100 RSD", image: "Grissine Viktor 100g.png",   featured: false },
+  { id: 77, name: "Grissine Massiano 100 g",  category: "Burek i slani program", description: DESC, price: "100 RSD", image: "Grissine Massiano 100g.png", featured: false },
 
   // ===== Pizza i sendviči =====
   { id: 51, name: "Pizza kukuruz",            category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza kukuruz.png", featured: false },
@@ -512,6 +531,14 @@ const PRODUCTS = [
   { id: 53, name: "Pizza parče kulen",        category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza kulne.png",   featured: false },
   { id: 54, name: "Pomfrit",                  category: "Pizza i sendviči", description: DESC, price: "200 RSD", image: "Pomfrit.png",       featured: false },
   { id: 55, name: "Tortilje",                 category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "Tortilje.png",      featured: false },
+  // ===== New Pizza i sendviči =====
+  { id: 80, name: "Sendvič piletina",         category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "Sendvic piletina.png",  featured: false },
+  { id: 81, name: "Sendvič šunka",            category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "Sendvic sunka.png",     featured: false },
+  { id: 82, name: "Sendvič kulen",            category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "Sendvic kulen.png",     featured: false },
+  { id: 83, name: "Sendvič pečenica",         category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "Sendvic pecenica.png",  featured: false },
+  { id: 84, name: "Pileći batak",             category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "Pileci batak.png",      featured: false },
+  { id: 85, name: "Porodična pizza",          category: "Pizza i sendviči", description: DESC, price: "1500 RSD", image: "Porodicna pizza.png",   featured: true  },
+  { id: 86, name: "Sendvič nuggets",          category: "Pizza i sendviči", description: DESC, price: "250 RSD",  image: "Sendvic nuggets.png",   featured: false },
 
   // ===== Kolači, kafa i pića =====
   { id: 56, name: "Čajevi",            category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Cajevi.png",            featured: false },
@@ -527,15 +554,27 @@ const PRODUCTS = [
   { id: 66, name: "Lenja pita krem",   category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lenja pita krem.png",   featured: false },
   { id: 67, name: "Lisnato višnja",    category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lisnato visnja.png",    featured: false },
   { id: 68, name: "Pita bundeva",      category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "Pita bundeva.png",      featured: false },
+  // ===== New Kolači, kafa i pića =====
+  { id: 78, name: "Doboš torta",       category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Dobos torta.png",       featured: false },
+  { id: 79, name: "Jagoda torta",      category: "Kolači, kafa i pića", description: DESC, price: "250 RSD", image: "Jagoda torta.png",      featured: false },
+
+  // ===== Klas Grill =====
+  { id: 87, name: "Hamburger 150 g",            category: "Klas Grill", description: DESC, price: "450 RSD", image: "Hamburger 150g.png",            featured: true  },
+  { id: 88, name: "Ćevap pazarski 5 kom",       category: "Klas Grill", description: DESC, price: "400 RSD", image: "Cevap pazarski 5 kom.png",      featured: false },
+  { id: 89, name: "Ćevap pazarski 10 kom",      category: "Klas Grill", description: DESC, price: "800 RSD", image: "Cevap pazarski 10 kom.png",     featured: false },
+  { id: 90, name: "Ćevap sarajevski 5 kom",     category: "Klas Grill", description: DESC, price: "300 RSD", image: "Cevap sarajevski 5 kom.png",    featured: false },
+  { id: 91, name: "Ćevap sarajevski 10 kom",    category: "Klas Grill", description: DESC, price: "600 RSD", image: "Cevap sarajevski 10 kom.png",   featured: false },
+  { id: 92, name: "Pljeskavica 200 g",          category: "Klas Grill", description: DESC, price: "550 RSD", image: "Pljeskavica 200g.png",          featured: true  },
+  { id: 93, name: "Gyros",                      category: "Klas Grill", description: DESC, price: "500 RSD", image: "Gyros.png",                     featured: false },
 ];
 
 /* ============================
    LOCATIONS — single source
 ============================ */
 const LOCATIONS = [
-  {name:"Klas 024 - Lokacija 1", address:"Unesite adresu prve lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
-  {name:"Klas 024 - Lokacija 2", address:"Unesite adresu druge lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
-  {name:"Klas 024 - Lokacija 3", address:"Unesite adresu treće lokacije", phone:"Unesite broj telefona", hours:"Unesite radno vreme", map:"#"},
+  {name:"Klas 024 — Moše Pijade",   address:"Moše Pijade 53",  hours:"00–24"},
+  {name:"Klas 024 — Maršala Tita",  address:"Maršala Tita 4",  hours:"05–22"},
+  {name:"Klas 024 — Lenjinova",     address:"Lenjinova 84",    hours:"05–22"},
 ];
 
 /* ============================
@@ -561,16 +600,58 @@ function cardHTML(p){
 const featured = PRODUCTS.filter(p=>p.featured).slice(0,8);
 document.getElementById('featuredGrid').innerHTML = featured.map(cardHTML).join('');
 
-// Categories
+// Categories — Klas Grill uses inline SVG so no upload required
+const GRILL_SVG = "data:image/svg+xml;utf8," + encodeURIComponent(`
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500' preserveAspectRatio='xMidYMid slice'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0' stop-color='#3a1408'/>
+      <stop offset='1' stop-color='#0e0e10'/>
+    </linearGradient>
+    <radialGradient id='glow' cx='50%' cy='75%' r='55%'>
+      <stop offset='0' stop-color='#e3122b' stop-opacity='.55'/>
+      <stop offset='1' stop-color='#e3122b' stop-opacity='0'/>
+    </radialGradient>
+  </defs>
+  <rect width='400' height='500' fill='url(#bg)'/>
+  <rect width='400' height='500' fill='url(#glow)'/>
+  <!-- flames -->
+  <path d='M70 430 Q90 360 110 400 Q130 340 155 405 Q180 350 200 410 Q220 340 245 405 Q270 350 290 405 Q310 350 330 415 L330 470 L70 470 Z' fill='#e9b949' opacity='.85'/>
+  <path d='M90 440 Q110 380 130 420 Q160 370 195 425 Q230 370 260 425 Q295 375 315 430 L315 470 L90 470 Z' fill='#e3122b' opacity='.9'/>
+  <!-- grill grates -->
+  <g stroke='#1a1a1a' stroke-width='6' opacity='.9'>
+    <line x1='60' y1='455' x2='340' y2='455'/>
+    <line x1='60' y1='468' x2='340' y2='468'/>
+  </g>
+  <!-- burger -->
+  <g transform='translate(200 230)'>
+    <!-- top bun -->
+    <path d='M-110 0 Q-110 -80 0 -80 Q110 -80 110 0 Z' fill='#d99a52'/>
+    <ellipse cx='-40' cy='-50' rx='6' ry='4' fill='#f7e9c9'/>
+    <ellipse cx='10' cy='-65' rx='6' ry='4' fill='#f7e9c9'/>
+    <ellipse cx='55' cy='-45' rx='6' ry='4' fill='#f7e9c9'/>
+    <!-- lettuce -->
+    <path d='M-115 5 Q-90 -8 -60 5 Q-30 -10 0 5 Q30 -10 60 5 Q90 -8 115 5 L115 20 L-115 20 Z' fill='#5fa84a'/>
+    <!-- cheese -->
+    <path d='M-115 22 L115 22 L100 42 Q90 50 70 45 Q40 52 10 46 Q-30 52 -60 45 Q-90 50 -115 42 Z' fill='#f1c84b'/>
+    <!-- patty -->
+    <rect x='-115' y='45' width='230' height='30' rx='10' fill='#6b2a14'/>
+    <!-- bottom bun -->
+    <path d='M-115 75 L115 75 Q115 110 0 110 Q-115 110 -115 75 Z' fill='#c98744'/>
+  </g>
+</svg>
+`);
+
 const CAT_IMG = {
   "Hleb i peciva":"hleb-peciva.jpg",
   "Burek i slani program":"burek-slani-program.jpg",
   "Pizza i sendviči":"pizza-sendvici.jpg",
   "Kolači, kafa i pića":"kolaci-kafa-pica.jpg",
+  "Klas Grill": GRILL_SVG,
 };
 document.getElementById('catGrid').innerHTML = CATEGORIES.map(c=>`
   <a class="cat-card" href="#meni" data-filter="${c}">
-    <div class="bg" style="background-image:url('${CAT_IMG[c]}')"></div>
+    <div class="bg" style="background-image:url(&quot;${CAT_IMG[c]}&quot;)"></div>
     <div class="label">
       <div class="k">${c}</div>
       <div class="arrow">Pogledaj ponudu →</div>
@@ -600,6 +681,13 @@ function renderMenu(){
 }
 renderMenu();
 
+function setActiveCategory(cat){
+  document.querySelectorAll('.chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.cat===cat);
+  });
+  renderMenu();
+}
+
 filtersEl.addEventListener('click', e=>{
   if(!e.target.classList.contains('chip')) return;
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
@@ -610,23 +698,26 @@ document.getElementById('searchInput').addEventListener('input', renderMenu);
 
 // Category quick-jump
 document.querySelectorAll('.cat-card').forEach(el=>{
-  el.addEventListener('click', e=>{
-    const cat = el.dataset.filter;
-    document.querySelectorAll('.chip').forEach(c=>{
-      c.classList.toggle('active', c.dataset.cat===cat);
-    });
-    renderMenu();
+  el.addEventListener('click', ()=>{
+    setActiveCategory(el.dataset.filter);
   });
 });
 
-// Locations
+// Footer category links
+document.querySelectorAll('[data-cat-link]').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    setActiveCategory(el.getAttribute('data-cat-link'));
+  });
+});
+
+// Locations (no placeholders; phone/map hidden when not provided)
 document.getElementById('locGrid').innerHTML = LOCATIONS.map(l=>`
   <div class="loc-card">
     <h3>${l.name}</h3>
     <div class="loc-row"><span class="ic">●</span><span>${l.address}</span></div>
-    <div class="loc-row"><span class="ic">☎</span><span>${l.phone}</span></div>
-    <div class="loc-row"><span class="ic">⏰</span><span>${l.hours}</span></div>
-    <a class="btn btn-primary" href="${l.map}" target="_blank" rel="noopener">Otvori u Google Maps</a>
+    ${l.phone ? `<div class="loc-row"><span class="ic">☎</span><span>${l.phone}</span></div>` : ``}
+    <div class="loc-row"><span class="ic">⏰</span><span>Radno vreme: ${l.hours}</span></div>
+    ${l.map ? `<a class="btn btn-primary" href="${l.map}" target="_blank" rel="noopener">Otvori u Google Maps</a>` : ``}
   </div>
 `).join('');
 
@@ -636,6 +727,17 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 document.querySelectorAll('#navLinks a').forEach(a=>{
   a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open'));
 });
+
+// /menu deep link support (QR code -> http://www.klas024.rs/menu)
+(function(){
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/,'');
+  if (path.endsWith('/menu')) {
+    setTimeout(()=>{
+      const el = document.getElementById('meni');
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
+})();
 </script>
 </body>
 </html>
