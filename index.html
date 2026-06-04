@@ -255,6 +255,8 @@
   }
   .contact-item .lbl{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
   .contact-item .val{color:#fff;font-weight:600;font-size:15px;word-break:break-word}
+  .contact-item a.val{transition:.25s}
+  .contact-item a.val:hover{color:var(--red)}
   .contact-cta{text-align:center;margin-top:32px}
 
   /* FOOTER */
@@ -270,8 +272,9 @@
   .socials a{
     width:38px;height:38px;border-radius:50%;background:var(--bg-2);
     display:flex;align-items:center;justify-content:center;
-    border:1px solid var(--line);transition:.25s;font-weight:800;font-size:12px;color:var(--cream)
+    border:1px solid var(--line);transition:.25s;color:var(--cream)
   }
+  .socials a svg{width:18px;height:18px;display:block;fill:currentColor}
   .socials a:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
 
@@ -297,17 +300,17 @@
     color:#fff;
     border:1px solid rgba(255,255,255,.18);
     box-shadow:0 10px 24px rgba(0,0,0,.35);
-    font-weight:800;
-    font-size:13px;
     transition:.25s;
   }
+  .floating-socials a svg{width:22px;height:22px;display:block;fill:currentColor}
   .floating-socials a:hover{
     background:var(--red-2);
     transform:translateY(-2px);
   }
   @media(max-width:560px){
     .floating-socials{right:12px;gap:8px}
-    .floating-socials a{width:42px;height:42px;font-size:12px}
+    .floating-socials a{width:42px;height:42px}
+    .floating-socials a svg{width:20px;height:20px}
   }
 
   /* MOBILE NAV */
@@ -327,10 +330,10 @@
 <!-- HEADER -->
 <header class="header">
   <div class="container nav">
-    <div class="brand">
+    <a href="https://www.klas024.rs/" class="brand" aria-label="Klas 024 — početna">
       <div class="logo" aria-label="Klas 024 logo"></div>
       <div class="brand-name">Klas 024</div>
-    </div>
+    </a>
     <nav class="nav-links" id="navLinks">
       <a href="#pocetna">Početna</a>
       <a href="#najtrazenije">Najtraženije</a>
@@ -346,8 +349,12 @@
 
 <!-- FLOATING SOCIAL BUTTONS -->
 <div class="floating-socials" aria-label="Društvene mreže">
-  <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
-  <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+  <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 5 3.66 9.15 8.44 9.93v-7.02H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.78 8.43-4.93 8.43-9.93z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.84c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.7 9.83 2.69 10.18 2.69 12s.01 2.17.07 3.41c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-3.41s-.01-2.17-.07-3.41c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32zm6.2-8.23a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0z"/></svg>
+  </a>
 </div>
 
 <!-- HERO -->
@@ -438,8 +445,8 @@
     </div>
     <div class="contact-grid">
       <div class="contact-item"><div class="lbl">Lokacije</div><div class="val">3 lokacije u Adi</div></div>
-      <div class="contact-item"><div class="lbl">Facebook</div><div class="val">@pekara.klas</div></div>
-      <div class="contact-item"><div class="lbl">Instagram</div><div class="val">@pekara.klas</div></div>
+      <div class="contact-item"><div class="lbl">Facebook</div><a class="val" href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener">Klaspekara2025</a></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><a class="val" href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener">@Klaspekara2025</a></div>
     </div>
     <div class="contact-cta">
       <a href="#lokacije" class="btn btn-primary">Pogledajte lokacije</a>
@@ -457,8 +464,12 @@
       </div>
       <p>Sveže pecivo, hleb, pizza, kolači i kafa — svaki dan. Ukus koji se vraća.</p>
       <div class="socials">
-        <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">Fb</a>
-        <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">Ig</a>
+        <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 5 3.66 9.15 8.44 9.93v-7.02H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.78 8.43-4.93 8.43-9.93z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.84c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.7 9.83 2.69 10.18 2.69 12s.01 2.17.07 3.41c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-3.41s-.01-2.17-.07-3.41c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32zm6.2-8.23a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0z"/></svg>
+        </a>
       </div>
     </div>
     <div>
@@ -501,21 +512,30 @@ const CATEGORIES = [
 const DESC = "Sveže pripremljeno iz naše pekare.";
 
 const PRODUCTS = [
-  // ===== Hleb i peciva =====
+  // ===== Hleb i peciva — BREAD FIRST =====
   { id: 1,  name: "Bakin hleb",        category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Bakin hleb.png",        featured: true  },
-  { id: 2,  name: "Bavarska kifla so", category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Bavarska kifla.png",    featured: false },
-  { id: 3,  name: "Bavarska susam",    category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Bavarska susam.png",    featured: false },
-  { id: 4,  name: "Dansko pecivo",     category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Dansko pecivo.png",     featured: false },
-  { id: 5,  name: "Domaća ćabata",     category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Domaca cibata.png",     featured: true  },
-  { id: 6,  name: "Durum hleb",        category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Durum hleb.png",        featured: false },
   { id: 7,  name: "Hleb",              category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb.png",              featured: true  },
   { id: 8,  name: "Hleb kalup",        category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Hleb kalup.png",        featured: false },
   { id: 9,  name: "Hrono hleb",        category: "Hleb i peciva", description: DESC, price: "70 RSD",  image: "Hrono hleb.png",        featured: false },
+  { id: 5,  name: "Domaća ćabata",     category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Domaca cibata.png",     featured: true  },
+  { id: 6,  name: "Durum hleb",        category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Durum hleb.png",        featured: false },
+  { id: 25, name: "Sečeni hleb",       category: "Hleb i peciva", description: DESC, price: "95 RSD",  image: "Seceni hleb.png",       featured: false },
+  { id: 24, name: "Ruža hleb cvet",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Ruza hlep cvet.png",    featured: false },
+  { id: 69, name: "Raženi hleb",       category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "zlatni hleb.png",       featured: false },
+  { id: 70, name: "Hrskavi hleb",      category: "Hleb i peciva", description: DESC, price: "70 RSD",  image: "zlatna lepinja.png",    featured: false },
+  { id: 94, name: "Zlatni hleb",       category: "Hleb i peciva", description: DESC, price: "110 RSD", image: "zlatni hleb.png",       featured: false },
+  { id: 71, name: "Banana hleb",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "banana hleb.png",       featured: false },
+  { id: 72, name: "Francuski hleb",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "francuski hleb.png",    featured: false },
+
+  // ===== Hleb i peciva — Ostala peciva =====
+  { id: 2,  name: "Bavarska kifla so", category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Bavarska kifla.png",    featured: false },
+  { id: 3,  name: "Bavarska susam",    category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Bavarska susam.png",    featured: false },
+  { id: 4,  name: "Dansko pecivo",     category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Dansko pecivo.png",     featured: false },
   { id: 10, name: "Integralna kifla",  category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Integralna kifla.png",  featured: false },
   { id: 11, name: "Kečap kifla",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Kecap kifla.png",       featured: false },
   { id: 12, name: "Kečap viršla",      category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Kecap virsla.png",      featured: false },
-  { id: 13, name: "Kifla krem",        category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Kifla krem.png",        featured: false },
   { id: 14, name: "Kifla slatka",      category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Kifla slatka.png",      featured: false },
+  { id: 33, name: "Eurokrem kifla",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Eurokrem kifla.png",    featured: false },
   { id: 15, name: "Lisnato jabuka",    category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato jabuka.png",    featured: false },
   { id: 16, name: "Lisnato kakao",     category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato kakao.png",     featured: false },
   { id: 17, name: "Lisnato mak",       category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato mak.png",       featured: false },
@@ -525,8 +545,6 @@ const PRODUCTS = [
   { id: 21, name: "Pletenica",         category: "Hleb i peciva", description: DESC, price: "60 RSD",  image: "Pletenica.png",         featured: false },
   { id: 22, name: "Pogačica sir",      category: "Hleb i peciva", description: DESC, price: "800 RSD / kg", image: "Pogacice sir kg.png", featured: false },
   { id: 23, name: "Prstići",           category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Prstici.png",           featured: false },
-  { id: 24, name: "Ruža hleb cvet",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Ruza hlep cvet.png",    featured: false },
-  { id: 25, name: "Sečeni hleb",       category: "Hleb i peciva", description: DESC, price: "95 RSD",  image: "Seceni hleb.png",       featured: false },
   { id: 26, name: "Slana kifla",       category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "Slana kifla.png",       featured: false },
   { id: 27, name: "Slavski kolač",     category: "Hleb i peciva", description: DESC, price: "600 RSD", image: "Slavski kolac.png",     featured: false },
   { id: 28, name: "Srce sir",          category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Srce sir.png",          featured: false },
@@ -534,17 +552,11 @@ const PRODUCTS = [
   { id: 30, name: "Štrudla mak",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Strudla mak.png",       featured: false },
   { id: 31, name: "Štrudla sir",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Strudla sir.png",       featured: false },
   { id: 32, name: "Testo",             category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "Testo.png",             featured: false },
-  // ===== New Hleb i peciva =====
-  { id: 69, name: "Zlatni hleb",       category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "zlatni hleb.png",       featured: false },
-  { id: 70, name: "Zlatna lepinja",    category: "Hleb i peciva", description: DESC, price: "70 RSD",  image: "zlatna lepinja.png",    featured: false },
-  { id: 71, name: "Banana hleb",       category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "banana hleb.png",       featured: false },
-  { id: 72, name: "Francuski hleb",    category: "Hleb i peciva", description: DESC, price: "90 RSD",  image: "francuski hleb.png",    featured: false },
   { id: 73, name: "Perec",             category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "perec.png",             featured: false },
   { id: 74, name: "Štapić kifla",      category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "stapic kifla.png",      featured: false },
   { id: 75, name: "Suvi perec",        category: "Hleb i peciva", description: DESC, price: "50 RSD",  image: "suvi perec.png",        featured: false },
 
   // ===== Burek i slani program =====
-  { id: 33, name: "Beli luk štapić",          category: "Burek i slani program", description: DESC, price: "Cena uskoro", image: "Beli luk stapic.png", featured: false },
   { id: 34, name: "Bufla senf",               category: "Burek i slani program", description: DESC, price: "90 RSD",  image: "Bufla sent.png",          featured: false },
   { id: 35, name: "Burek jabuka",             category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Burek jabuka.png",        featured: false },
   { id: 36, name: "Burek krompir",            category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek krompir.png",       featured: false },
@@ -557,12 +569,12 @@ const PRODUCTS = [
   { id: 43, name: "Lisnato kulen",            category: "Burek i slani program", description: DESC, price: "120 RSD", image: "Lisnato kulen.png",       featured: false },
   { id: 44, name: "Lisnato paprika",          category: "Burek i slani program", description: DESC, price: "60 RSD",  image: "Lisnato paprika.png",     featured: false },
   { id: 45, name: "Lisnato piletina",         category: "Burek i slani program", description: DESC, price: "60 RSD",  image: "Lisnato piletina.png",    featured: false },
+  { id: 95, name: "Lisnato topljeni sir",     category: "Burek i slani program", description: DESC, price: "60 RSD",  image: "Lisnato topljeni sir.png",featured: false },
   { id: 46, name: "Mekika",                   category: "Burek i slani program", description: DESC, price: "70 RSD",  image: "Mekkika.png",             featured: false },
   { id: 47, name: "Piroška šunka",            category: "Burek i slani program", description: DESC, price: "170 RSD", image: "Piroska sunka.png",       featured: false },
   { id: 48, name: "Pita feta sir",            category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita feta sir.png",       featured: false },
   { id: 49, name: "Pita spanać",              category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita spanac.png",         featured: false },
   { id: 50, name: "Pogačica sa čvarcima",     category: "Burek i slani program", description: DESC, price: "90 RSD",  image: "Pogacica sa cvarcima.png",featured: false },
-  // ===== New Burek i slani program =====
   { id: 76, name: "Grissine Viktor 100 g",    category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine viktor.png",   featured: false },
   { id: 77, name: "Grissine Massiano 100 g",  category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine massiano.png", featured: false },
 
@@ -572,7 +584,6 @@ const PRODUCTS = [
   { id: 53, name: "Pizza parče kulen",        category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "Pizza kulne.png",   featured: false },
   { id: 54, name: "Pomfrit",                  category: "Pizza i sendviči", description: DESC, price: "200 RSD", image: "Pomfrit.png",       featured: false },
   { id: 55, name: "Tortilje",                 category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "Tortilje.png",      featured: false },
-  // ===== New Pizza i sendviči =====
   { id: 80, name: "Sendvič piletina",         category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "sandwich-piletina.jpg",  featured: false },
   { id: 81, name: "Sendvič šunka",            category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "sandwich sunka.png",     featured: false },
   { id: 82, name: "Sendvič kulen",            category: "Pizza i sendviči", description: DESC, price: "180 RSD",  image: "sandwich kulen.png",     featured: false },
@@ -581,23 +592,26 @@ const PRODUCTS = [
   { id: 85, name: "Porodična pizza",          category: "Pizza i sendviči", description: DESC, price: "1500 RSD", image: "porodicna pizza.png",   featured: true  },
   { id: 86, name: "Sendvič nuggets",          category: "Pizza i sendviči", description: DESC, price: "250 RSD",  image: "sandwich nuggets.png",   featured: false },
 
-  // ===== Kolači, kafa i pića =====
+  // ===== Kolači, kafa i pića — COFFEE & TEA FIRST =====
   { id: 56, name: "Čajevi",            category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Cajevi.png",            featured: false },
-  { id: 57, name: "Cheesecake",        category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Cheescake.png",         featured: false },
-  { id: 58, name: "Čoko lešnik",       category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Choko lesnik.png",      featured: false },
-  { id: 59, name: "Čokoladna torta",   category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Cokoladna torta.png",   featured: true  },
-  { id: 60, name: "Dubai torta",       category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "Dubai torta.png",       featured: false },
   { id: 61, name: "Espresso bez mleka",category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Espresso bez mleka.png",featured: true  },
   { id: 62, name: "Karamel symphoni",  category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Karamel symphony.png",  featured: false },
+
+  // ===== Kolači, kafa i pića — TORTE =====
+  { id: 59, name: "Čokoladna torta",   category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Cokoladna torta.png",   featured: true  },
+  { id: 60, name: "Dubai torta",       category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "Dubai torta.png",       featured: false },
+  { id: 78, name: "Doboš torta",       category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "dobos torta.png",       featured: false },
+  { id: 79, name: "Jagoda torta",      category: "Kolači, kafa i pića", description: DESC, price: "250 RSD", image: "jagoda-torta.jpg",      featured: false },
+  { id: 57, name: "Cheesecake",        category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Cheescake.png",         featured: false },
+
+  // ===== Kolači, kafa i pića — OSTALI SLATKIŠI =====
+  { id: 58, name: "Čoko lešnik",       category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Choko lesnik.png",      featured: false },
   { id: 63, name: "Krempita",          category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Krempita.png",          featured: true  },
   { id: 64, name: "Krosan krem",       category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Krosan krem.png",       featured: false },
   { id: 65, name: "Lenja pita jabuka", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lenja pita jabuka.png", featured: false },
   { id: 66, name: "Lenja pita krem",   category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lenja pita krem.png",   featured: false },
   { id: 67, name: "Lisnato višnja",    category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lisnato visnja.png",    featured: false },
   { id: 68, name: "Pita bundeva",      category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "Pita bundeva.png",      featured: false },
-  // ===== New Kolači, kafa i pića =====
-  { id: 78, name: "Doboš torta",       category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "dobos torta.png",       featured: false },
-  { id: 79, name: "Jagoda torta",      category: "Kolači, kafa i pića", description: DESC, price: "250 RSD", image: "jagoda-torta.jpg",      featured: false },
 
   // ===== Klas Grill =====
   { id: 87, name: "Hamburger 150 g",            category: "Klas Grill", description: DESC, price: "450 RSD", image: "hamburger.jpeg",            featured: true  },
