@@ -1,0 +1,59 @@
+name: One-time Klas Grill price update
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update only the five approved prices
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index_path = Path("index.html")
+          workflow_path = Path(".github/workflows/update-grill-prices.yml")
+          text = index_path.read_text(encoding="utf-8")
+
+          replacements = {
+              'name: "Ćevap pazarski 5 kom", category: "Klas Grill", description: DESC, price: "400 RSD"':
+                  'name: "Ćevap pazarski 5 kom", category: "Klas Grill", description: DESC, price: "500 RSD"',
+              'name: "Ćevap pazarski 10 kom", category: "Klas Grill", description: DESC, price: "800 RSD"':
+                  'name: "Ćevap pazarski 10 kom", category: "Klas Grill", description: DESC, price: "900 RSD"',
+              'name: "Ćevap sarajevski 5 kom", category: "Klas Grill", description: DESC, price: "300 RSD"':
+                  'name: "Ćevap sarajevski 5 kom", category: "Klas Grill", description: DESC, price: "350 RSD"',
+              'name: "Ćevap sarajevski 10 kom", category: "Klas Grill", description: DESC, price: "600 RSD"':
+                  'name: "Ćevap sarajevski 10 kom", category: "Klas Grill", description: DESC, price: "700 RSD"',
+              'name: "Pljeskavica 200 g", category: "Klas Grill", description: DESC, price: "550 RSD"':
+                  'name: "Pljeskavica 200 g", category: "Klas Grill", description: DESC, price: "600 RSD"',
+          }
+
+          for old, new in replacements.items():
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"Expected exactly one match, found {count}: {old}")
+              text = text.replace(old, new)
+
+          index_path.write_text(text, encoding="utf-8")
+          workflow_path.unlink()
+
+      - name: Commit the exact price-only change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html .github/workflows/update-grill-prices.yml
+          git diff --cached --check
+          git commit -m "Update Klas Grill prices"
+          git push
