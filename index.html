@@ -277,6 +277,7 @@
   .socials a svg{width:18px;height:18px;display:block;fill:currentColor}
   .socials a:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
+
   /* FLOATING SOCIAL BUTTONS */
   .floating-socials{
     position:fixed;
@@ -512,6 +513,7 @@ const CATEGORIES = [
 const DESC = "Sveže pripremljeno iz naše pekare.";
 
 const PRODUCTS = [
+  // ===== Hleb i peciva =====
   { id: 1, name: "Bakin hleb", category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Bakin hleb.png", featured: true },
   { id: 7, name: "Hleb", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Hleb.png", featured: true },
   { id: 8, name: "Hleb kalup", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Hleb kalup.png", featured: false },
@@ -553,6 +555,8 @@ const PRODUCTS = [
   { id: 73, name: "Perec", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "perec.png", featured: false },
   { id: 74, name: "Štapić kifla", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "stapic kifla.png", featured: false },
   { id: 75, name: "Suvi perec", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "suvi perec.png", featured: false },
+
+  // ===== Burek i slani program =====
   { id: 34, name: "Bufla senf", category: "Burek i slani program", description: DESC, price: "90 RSD", image: "Bufla sent.png", featured: false },
   { id: 35, name: "Burek jabuka", category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Burek jabuka.png", featured: false },
   { id: 36, name: "Burek krompir", category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek krompir.png", featured: false },
@@ -574,6 +578,8 @@ const PRODUCTS = [
   { id: 50, name: "Pogačica sa čvarcima", category: "Burek i slani program", description: DESC, price: "90 RSD", image: "Pogacica sa cvarcima.png", featured: false },
   { id: 76, name: "Grissine Viktor 100 g", category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine viktor.png", featured: false },
   { id: 77, name: "Grissine Massiano 100 g", category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine massiano.png", featured: false },
+
+  // ===== Pizza i sendviči =====
   { id: 51, name: "Pizza kukuruz", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza kukuruz.png", featured: false },
   { id: 52, name: "Pizza parče (gljivama)", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza gljive.png", featured: true },
   { id: 53, name: "Pizza parče kulen", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza kulne.png", featured: false },
@@ -586,6 +592,8 @@ const PRODUCTS = [
   { id: 84, name: "Pileći batak", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "batak pileci.png", featured: false },
   { id: 85, name: "Porodična pizza", category: "Pizza i sendviči", description: DESC, price: "1500 RSD", image: "porodicna pizza.png", featured: true },
   { id: 86, name: "Sendvič nuggets", category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "sandwich nuggets.png", featured: false },
+
+  // ===== Kolači, kafa i pića =====
   { id: 56, name: "Čajevi", category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Cajevi.png", featured: false },
   { id: 61, name: "Espresso bez mleka", category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Espresso bez mleka.png", featured: true },
   { id: 103, name: "Capuccino", category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "capuccino.png", featured: false },
@@ -608,6 +616,8 @@ const PRODUCTS = [
   { id: 68, name: "Pita bundeva", category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "Pita bundeva.png", featured: false },
   { id: 100, name: "Mafine", category: "Kolači, kafa i pića", description: DESC, price: "60 RSD", image: "mafine.png", featured: false },
   { id: 101, name: "Krofne", category: "Kolači, kafa i pića", description: DESC, price: "90 RSD", image: "krofne.png", featured: false },
+
+  // ===== Klas Grill =====
   { id: 87, name: "Hamburger 150 g", category: "Klas Grill", description: DESC, price: "450 RSD", image: "hamburger.jpeg", featured: true },
   { id: 88, name: "Ćevap pazarski 5 kom", category: "Klas Grill", description: DESC, price: "500 RSD", image: "cevap-pazarski-5-kom.jpg", featured: false },
   { id: 89, name: "Ćevap pazarski 10 kom", category: "Klas Grill", description: DESC, price: "900 RSD", image: "cevap-pazarski-10-kom.jpg", featured: false },
@@ -617,12 +627,18 @@ const PRODUCTS = [
   { id: 93, name: "Gyros", category: "Klas Grill", description: DESC, price: "500 RSD", image: "gyros.jpg", featured: false },
 ];
 
+/* ============================
+   LOCATIONS — single source
+============================ */
 const LOCATIONS = [
   {name:"Klas 024 — Moše Pijade",   address:"Moše Pijade 53",  hours:"00–24", phone:"063 108 1978"},
   {name:"Klas 024 — Maršala Tita",  address:"Maršala Tita 4",  hours:"05–22", phone:"063 108 1978"},
   {name:"Klas 024 — Lenjinova",     address:"Lenjinova 84",    hours:"05–22", phone:"063 108 1978"},
 ];
 
+/* ============================
+   RENDER
+============================ */
 function cardHTML(p){
   return `
     <article class="card" data-cat="${p.category}" data-name="${p.name.toLowerCase()}">
@@ -639,9 +655,12 @@ function cardHTML(p){
     </article>`;
 }
 
+// Featured (first 8 with featured:true)
 const featured = PRODUCTS.filter(p=>p.featured).slice(0,8);
 document.getElementById('featuredGrid').innerHTML = featured.map(cardHTML).join('');
 
+// Categories
+// Klas Grill uses a premium dark fallback gradient plus the uploaded hamburger product image when available.
 const CAT_BG = {
   "Hleb i peciva":"url('hleb-peciva.jpg')",
   "Burek i slani program":"url('burek-slani-program.jpg')",
@@ -659,6 +678,7 @@ document.getElementById('catGrid').innerHTML = CATEGORIES.map(c=>`
   </a>
 `).join('');
 
+// Filters
 const ALL = "Sve";
 const filterCats = [ALL, ...CATEGORIES];
 const filtersEl = document.getElementById('filters');
@@ -666,6 +686,7 @@ filtersEl.innerHTML = filterCats.map((c,i)=>
   `<button class="chip ${i===0?'active':''}" data-cat="${c}">${c}</button>`
 ).join('');
 
+// Menu
 const menuGrid = document.getElementById('menuGrid');
 function renderMenu(){
   const active = document.querySelector('.chip.active').dataset.cat;
@@ -694,18 +715,21 @@ filtersEl.addEventListener('click', e=>{
 });
 document.getElementById('searchInput').addEventListener('input', renderMenu);
 
+// Category quick-jump
 document.querySelectorAll('.cat-card').forEach(el=>{
   el.addEventListener('click', ()=>{
     setActiveCategory(el.dataset.filter);
   });
 });
 
+// Footer category links
 document.querySelectorAll('[data-cat-link]').forEach(el=>{
   el.addEventListener('click', ()=>{
     setActiveCategory(el.getAttribute('data-cat-link'));
   });
 });
 
+// Locations (no placeholders; phone/map hidden when not provided)
 document.getElementById('locGrid').innerHTML = LOCATIONS.map(l=>`
   <div class="loc-card">
     <h3>${l.name}</h3>
@@ -718,10 +742,12 @@ document.getElementById('locGrid').innerHTML = LOCATIONS.map(l=>`
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+// Close mobile nav on click
 document.querySelectorAll('#navLinks a').forEach(a=>{
   a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open'));
 });
 
+// /menu deep link support (QR code -> http://www.klas024.rs/menu)
 (function(){
   const path = window.location.pathname.toLowerCase().replace(/\/+$/,'');
   if (path.endsWith('/menu')) {
