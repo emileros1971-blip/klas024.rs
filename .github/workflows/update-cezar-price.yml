@@ -1,0 +1,46 @@
+name: One-time Cezar salata price update
+
+on:
+  push:
+    branches:
+      - update-cezar-price-400
+
+permissions:
+  contents: write
+
+jobs:
+  update-price:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update Cezar salata price
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index_path = Path("index.html")
+          workflow_path = Path(".github/workflows/update-cezar-price.yml")
+          text = index_path.read_text(encoding="utf-8")
+
+          old = '{ id: 105, name: "Cezar salata", category: "Pizza i sendviči", description: DESC, price: "00 RSD", image: "cezar-salata.jpg", featured: false },'
+          new = '{ id: 105, name: "Cezar salata", category: "Pizza i sendviči", description: DESC, price: "400 RSD", image: "cezar-salata.jpg", featured: false },'
+
+          if text.count(old) != 1:
+              raise SystemExit("Expected exactly one Cezar salata entry with 00 RSD")
+
+          index_path.write_text(text.replace(old, new), encoding="utf-8")
+          workflow_path.unlink()
+
+      - name: Commit price update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html .github/workflows/update-cezar-price.yml
+          git diff --cached --check
+          git commit -m "Update Cezar salata price to 400 RSD"
+          git push
