@@ -1,0 +1,48 @@
+name: One-time Caesar salad menu update
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  add-caesar-salad:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add Caesar salad to menu
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index_path = Path("index.html")
+          workflow_path = Path(".github/workflows/add-cezar-salata.yml")
+          text = index_path.read_text(encoding="utf-8")
+
+          product = '  { id: 105, name: "Cezar salata", category: "Pizza i sendviči", description: DESC, price: "00 RSD", image: "cezar-salata.jpg", featured: false },'
+          anchor = '  { id: 86, name: "Sendvič nuggets", category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "sandwich nuggets.png", featured: false },'
+
+          if 'name: "Cezar salata"' not in text:
+              if text.count(anchor) != 1:
+                  raise SystemExit("Expected exactly one Sendvič nuggets anchor")
+              text = text.replace(anchor, anchor + "\n" + product)
+              index_path.write_text(text, encoding="utf-8")
+
+          workflow_path.unlink()
+
+      - name: Commit menu update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- index.html .github/workflows/add-cezar-salata.yml
+          git diff --cached --check
+          git commit -m "Add Cezar salata to menu"
+          git push
