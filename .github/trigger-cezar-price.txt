@@ -1,1 +1,0 @@
-Trigger one-time Cezar salata price workflow.
