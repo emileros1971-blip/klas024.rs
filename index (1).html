@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1217508533643465');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1217508533643465&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Klas 024 — Sveže iz peći, svaki dan</title>
+<meta name="description" content="Klas 024 — sveže pecivo, hleb, pizza, kolači i kafa. Tri lokacije, premium ukus svaki dan." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg-2:#15151a;
+    --bg-3:#1c1c22;
+    --line:#2a2a32;
+    --text:#f3ece1;
+    --muted:#a8a195;
+    --red:#e3122b;
+    --red-2:#b80e22;
+    --gold:#e9b949;
+    --cream:#f7e9c9;
+    --radius:18px;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1240px;margin:0 auto;padding:0 24px}
+  .lobster{font-family:'Lobster',cursive;font-weight:400;letter-spacing:.5px}
+  .red{color:var(--red)}
+  .gold{color:var(--gold)}
+
+  /* HEADER */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,14,16,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    height:78px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:54px;height:54px;border-radius:50%;
+    background:#000 center/cover no-repeat url('logo.png');
+    border:2px solid var(--red);
+    box-shadow:0 0 0 3px rgba(227,18,43,.15);
+  }
+  .brand-name{font-family:'Lobster';font-size:24px;color:var(--cream)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{
+    font-weight:600;font-size:14px;letter-spacing:.4px;
+    text-transform:uppercase;color:var(--text);
+    padding:8px 4px;border-bottom:2px solid transparent;
+    transition:.25s;
+  }
+  .nav-links a:hover{color:var(--red);border-color:var(--red)}
+  .btn{
+    display:inline-block;font-weight:700;font-size:14px;
+    padding:12px 22px;border-radius:999px;
+    border:2px solid transparent;cursor:pointer;
+    transition:.25s;letter-spacing:.4px;text-transform:uppercase;
+  }
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-2);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--cream)}
+  .btn-ghost:hover{background:var(--cream);color:#111}
+  .burger{display:none;background:none;border:0;color:var(--text);font-size:28px;cursor:pointer}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:90vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(180deg, rgba(14,14,16,.25) 0%, rgba(14,14,16,.65) 100%),
+      url('bakery-hero.jpg') center/cover no-repeat,
+      linear-gradient(135deg,#1a1a1f,#0a0a0d);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 80%, rgba(227,18,43,.25), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2;padding:80px 0;max-width:780px}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:3px;
+    text-transform:uppercase;color:var(--gold);font-weight:700;
+    padding:8px 14px;border:1px solid var(--gold);border-radius:999px;margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:'Lobster';font-weight:400;
+    font-size:clamp(56px,9vw,118px);
+    line-height:.95;margin:0 0 18px;
+    color:#fff;
+    text-shadow:0 4px 24px rgba(0,0,0,.6);
+  }
+  .hero h1 span{color:var(--red)}
+  .hero .sub{font-size:clamp(18px,2vw,22px);color:var(--cream);max-width:620px;margin:0 0 10px;font-weight:500}
+  .hero .support{font-family:'Lobster';font-size:26px;color:var(--gold);margin-bottom:34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* SECTIONS */
+  section{padding:90px 0}
+  .section-head{text-align:center;margin-bottom:54px}
+  .section-head .eyebrow{margin-bottom:16px}
+  .section-title{
+    font-family:'Lobster';font-weight:400;
+    font-size:clamp(36px,5vw,58px);
+    color:#fff;margin:0 0 12px;
+  }
+  .section-sub{color:var(--muted);max-width:620px;margin:0 auto;font-size:16px}
+
+  /* PRODUCT CARD */
+  .grid{display:grid;gap:24px}
+  .grid-5{grid-template-columns:repeat(5,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:1100px){.grid-5{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:980px){.grid-5,.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-5,.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+
+  .card{
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-3));
+    border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;
+    transition:.3s;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 18px 40px rgba(227,18,43,.18)}
+  .card-img{
+    position:relative;aspect-ratio:4/3;overflow:hidden;
+    background:#000 center/cover no-repeat;
+  }
+  .card-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));
+  }
+  .card-tag{
+    position:absolute;top:12px;left:12px;z-index:2;
+    background:rgba(0,0,0,.6);color:var(--gold);
+    font-size:11px;font-weight:700;letter-spacing:.5px;
+    padding:6px 10px;border-radius:999px;text-transform:uppercase;
+    border:1px solid rgba(233,185,73,.3);
+  }
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card-title{font-weight:800;font-size:16px;margin:0 0 6px;color:#fff;letter-spacing:.2px}
+  .card-desc{color:var(--muted);font-size:13px;margin:0 0 14px;flex:1}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+  .price{font-weight:800;color:var(--red);font-size:16px;letter-spacing:.5px}
+  .card-btn{
+    font-size:12px;font-weight:700;text-transform:uppercase;
+    padding:8px 14px;border-radius:999px;background:#fff;color:#111;
+    transition:.25s;cursor:pointer;border:0;
+  }
+  .card-btn:hover{background:var(--red);color:#fff}
+
+  /* CATEGORIES */
+  .cat-card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:4/5;cursor:pointer;border:1px solid var(--line);
+  }
+  .cat-card .bg{
+    position:absolute;inset:0;background:#222 center/cover no-repeat;
+    transition:transform .6s;
+  }
+  .cat-card:hover .bg{transform:scale(1.08)}
+  .cat-card::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.85) 90%);
+  }
+  .cat-card .label{
+    position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:2;
+  }
+  .cat-card .label .k{font-family:'Lobster';font-size:30px;color:#fff;line-height:1}
+  .cat-card .label .arrow{
+    display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+    color:var(--gold);font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;
+  }
+
+  /* MENU FILTERS */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:24px}
+  .chip{
+    background:var(--bg-2);border:1px solid var(--line);
+    color:var(--text);font-weight:600;font-size:13px;
+    padding:10px 18px;border-radius:999px;cursor:pointer;
+    text-transform:uppercase;letter-spacing:.4px;transition:.25s;
+  }
+  .chip:hover{border-color:var(--red);color:#fff}
+  .chip.active{background:var(--red);border-color:var(--red);color:#fff}
+  .search-wrap{max-width:480px;margin:0 auto 36px;position:relative}
+  .search{
+    width:100%;padding:14px 20px;border-radius:999px;
+    background:var(--bg-2);border:1px solid var(--line);
+    color:var(--text);font-family:inherit;font-size:14px;outline:none;
+    transition:.25s;
+  }
+  .search:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(227,18,43,.15)}
+
+  /* ABOUT */
+  .about{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr}}
+  .about-img{
+    aspect-ratio:5/4;border-radius:var(--radius);
+    background:#222 center/cover no-repeat url('onama.png');
+    border:1px solid var(--line);box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .about-img::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(227,18,43,.2),transparent 60%);
+  }
+  .about h2{font-family:'Lobster';font-size:clamp(36px,5vw,54px);color:#fff;margin:0 0 18px;line-height:1}
+  .about p{color:var(--muted);font-size:16px;margin:0 0 18px}
+
+  /* LOCATIONS */
+  .loc-card{
+    background:linear-gradient(180deg,var(--bg-2),var(--bg-3));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:.3s;
+  }
+  .loc-card:hover{border-color:var(--red);transform:translateY(-4px)}
+  .loc-card h3{font-family:'Lobster';font-size:26px;color:#fff;margin:0 0 16px}
+  .loc-row{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--cream);font-size:14px}
+  .loc-row .ic{color:var(--red);font-weight:800;min-width:18px}
+  .loc-card .btn{margin-top:18px;width:100%;text-align:center}
+
+  /* CONTACT */
+  .contact{
+    background:linear-gradient(135deg,#1a0608,#0e0e10);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .contact-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;
+  }
+  @media(max-width:880px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.contact-grid{grid-template-columns:1fr}}
+  .contact-item{
+    padding:28px 18px;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:var(--radius);
+  }
+  .contact-item .lbl{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .contact-item .val{color:#fff;font-weight:600;font-size:15px;word-break:break-word}
+  .contact-item a.val{transition:.25s}
+  .contact-item a.val:hover{color:var(--red)}
+  .contact-cta{text-align:center;margin-top:32px}
+
+  /* FOOTER */
+  footer{background:#08080a;padding:60px 0 24px;border-top:1px solid var(--line)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+  @media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+  .foot-grid h4{color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin:0 0 16px}
+  .foot-grid a,.foot-grid p{color:var(--muted);font-size:14px;display:block;margin:6px 0}
+  .foot-grid a:hover{color:var(--red)}
+  .copy{text-align:center;color:var(--muted);font-size:13px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+  .socials{display:flex;gap:10px;margin-top:8px}
+  .socials a{
+    width:38px;height:38px;border-radius:50%;background:var(--bg-2);
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--line);transition:.25s;color:var(--cream)
+  }
+  .socials a svg{width:18px;height:18px;display:block;fill:currentColor}
+  .socials a:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+
+  /* FLOATING SOCIAL BUTTONS */
+  .floating-socials{
+    position:fixed;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:80;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .floating-socials a{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--red);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 10px 24px rgba(0,0,0,.35);
+    transition:.25s;
+  }
+  .floating-socials a svg{width:22px;height:22px;display:block;fill:currentColor}
+  .floating-socials a:hover{
+    background:var(--red-2);
+    transform:translateY(-2px);
+  }
+  @media(max-width:560px){
+    .floating-socials{right:12px;gap:8px}
+    .floating-socials a{width:42px;height:42px}
+    .floating-socials a svg{width:20px;height:20px}
+  }
+
+  /* MOBILE NAV */
+  @media(max-width:880px){
+    .nav-links,.nav .btn-primary{display:none}
+    .burger{display:block}
+    .nav-links.open{
+      display:flex;flex-direction:column;gap:14px;
+      position:absolute;top:78px;left:0;right:0;
+      background:#0e0e10;padding:20px 24px;border-bottom:1px solid var(--line);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    <a href="https://www.klas024.rs/" class="brand" aria-label="Klas 024 — početna">
+      <div class="logo" aria-label="Klas 024 logo"></div>
+      <div class="brand-name">Klas 024</div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#pocetna">Početna</a>
+      <a href="#najtrazenije">Najtraženije</a>
+      <a href="#kategorije">Kategorije</a>
+      <a href="#meni">Meni</a>
+      <a href="#lokacije">Lokacije</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="btn btn-primary">Kontakt</a>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- FLOATING SOCIAL BUTTONS -->
+<div class="floating-socials" aria-label="Društvene mreže">
+  <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 5 3.66 9.15 8.44 9.93v-7.02H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.78 8.43-4.93 8.43-9.93z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.84c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.7 9.83 2.69 10.18 2.69 12s.01 2.17.07 3.41c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-3.41s-.01-2.17-.07-3.41c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32zm6.2-8.23a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0z"/></svg>
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="pocetna" class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Sveže iz peći · od 1995.</span>
+    <h1>Klas <span>024</span></h1>
+    <p class="sub">Sveže pecivo, hleb, pizza, kolači i kafa svaki dan.</p>
+    <p class="support lobster">Ukus koji se vraća svakog dana</p>
+    <div class="hero-cta">
+      <a href="#meni" class="btn btn-primary">Pogledaj meni</a>
+      <a href="#lokacije" class="btn btn-ghost">Naše lokacije</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section id="najtrazenije">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Bestseller</span>
+      <h2 class="section-title">Najtraženije iz naše pekare</h2>
+      <p class="section-sub">Omiljeni proizvodi naših kupaca — sveže pripremljeno, svaki dan u sve tri lokacije.</p>
+    </div>
+    <div id="featuredGrid" class="grid grid-4"></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="kategorije" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Naše kategorije</span>
+      <h2 class="section-title">Sve što tražite na jednom mestu</h2>
+    </div>
+    <div class="grid grid-5" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="meni">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Kompletna ponuda</span>
+      <h2 class="section-title">Kompletna ponuda</h2>
+      <p class="section-sub">Pretražite naš celokupan asortiman ili filtrirajte po kategoriji.</p>
+    </div>
+    <div class="search-wrap">
+      <input id="searchInput" class="search" type="text" placeholder="Pretraži proizvode..." />
+    </div>
+    <div class="filters" id="filters"></div>
+    <div id="menuGrid" class="grid grid-4"></div>
+    <p id="empty" style="text-align:center;color:var(--muted);margin-top:30px;display:none">Nema rezultata za vašu pretragu.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container about-grid">
+    <div class="about-img"></div>
+    <div>
+      <span class="eyebrow">O nama</span>
+      <h2>Sveže iz peći, svaki dan</h2>
+      <p>U Klas 024 svakog dana pripremamo svež hleb, peciva, slani program, pizze, kolače i kafu za poneti. Naša ponuda je napravljena za brz doručak, porodičnu kupovinu, pauzu na poslu ili uživanje uz sveže pecivo i dobru kafu.</p>
+      <a href="#meni" class="btn btn-primary">Istraži ponudu</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="lokacije" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">3 lokacije</span>
+      <h2 class="section-title">Naše lokacije</h2>
+      <p class="section-sub">Posetite nas — uvek u blizini, uvek sveže.</p>
+    </div>
+    <div class="grid grid-3" id="locGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Stupite u kontakt</span>
+      <h2 class="section-title">Posetite nas ili nas pratite</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item"><div class="lbl">Lokacije</div><div class="val">3 lokacije u Adi</div></div>
+      <div class="contact-item"><div class="lbl">Facebook</div><a class="val" href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener">Klaspekara2025</a></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><a class="val" href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener">@Klaspekara2025</a></div>
+    </div>
+    <div class="contact-cta">
+      <a href="#lokacije" class="btn btn-primary">Pogledajte lokacije</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px">
+        <div class="logo"></div>
+        <div class="brand-name">Klas 024</div>
+      </div>
+      <p>Sveže pecivo, hleb, pizza, kolači i kafa — svaki dan. Ukus koji se vraća.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61577764839389" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 5 3.66 9.15 8.44 9.93v-7.02H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.77l-.44 2.91h-2.33V22c4.78-.78 8.43-4.93 8.43-9.93z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/Klaspekara2025/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.84c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.7 9.83 2.69 10.18 2.69 12s.01 2.17.07 3.41c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-3.41s-.01-2.17-.07-3.41c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4zm0 3.13a4.87 4.87 0 1 1 0 9.74 4.87 4.87 0 0 1 0-9.74zm0 8.03a3.16 3.16 0 1 0 0-6.32 3.16 3.16 0 0 0 0 6.32zm6.2-8.23a1.14 1.14 0 1 1-2.28 0 1.14 1.14 0 0 1 2.28 0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Brzi linkovi</h4>
+      <a href="#pocetna">Početna</a>
+      <a href="#najtrazenije">Najtraženije</a>
+      <a href="#meni">Meni</a>
+      <a href="#lokacije">Lokacije</a>
+    </div>
+    <div>
+      <h4>Kategorije</h4>
+      <a href="#meni" data-cat-link="Hleb i peciva">Hleb i peciva</a>
+      <a href="#meni" data-cat-link="Burek i slani program">Burek i slani program</a>
+      <a href="#meni" data-cat-link="Pizza i sendviči">Pizza i sendviči</a>
+      <a href="#meni" data-cat-link="Kolači, kafa i pića">Kolači, kafa i pića</a>
+      <a href="#meni" data-cat-link="Klas Grill">Klas Grill</a>
+    </div>
+    <div>
+      <h4>Lokacije</h4>
+      <p>Moše Pijade 53</p>
+      <p>Maršala Tita 4</p>
+      <p>Lenjinova 84</p>
+    </div>
+  </div>
+  <div class="container copy">© <span id="yr"></span> Klas 024. Sva prava zadržana.<br/><span style="font-size:12px;opacity:.75">Webmaster i web administracija: <a href="https://www.silverado.pro" target="_blank" rel="noopener" style="color:var(--gold)">silverado.pro</a></span></div>
+</footer>
+
+<script>
+/* ============================
+   PRODUCT DATA — single source
+============================ */
+const CATEGORIES = [
+  "Hleb i peciva",
+  "Burek i slani program",
+  "Pizza i sendviči",
+  "Kolači, kafa i pića",
+  "Klas Grill"
+];
+
+const DESC = "Sveže pripremljeno iz naše pekare.";
+
+const PRODUCTS = [
+  // ===== Hleb i peciva =====
+  { id: 1, name: "Bakin hleb", category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Bakin hleb.png", featured: true },
+  { id: 7, name: "Hleb", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Hleb.png", featured: true },
+  { id: 8, name: "Hleb kalup", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Hleb kalup.png", featured: false },
+  { id: 9, name: "Hrono hleb", category: "Hleb i peciva", description: DESC, price: "70 RSD", image: "Hrono hleb.png", featured: false },
+  { id: 5, name: "Domaća ćabata", category: "Hleb i peciva", description: DESC, price: "100 RSD", image: "Domaca cibata.png", featured: true },
+  { id: 6, name: "Durum hleb", category: "Hleb i peciva", description: DESC, price: "60 RSD", image: "Durum hleb.png", featured: false },
+  { id: 25, name: "Sečeni hleb", category: "Hleb i peciva", description: DESC, price: "95 RSD", image: "Seceni hleb.png", featured: false },
+  { id: 24, name: "Ruža hleb cvet", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Ruza hlep cvet.png", featured: false },
+  { id: 69, name: "Raženi hleb", category: "Hleb i peciva", description: DESC, price: "70 RSD", image: "razeni hleb.png", featured: false },
+  { id: 96, name: "Planinski hleb", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Planinski hleb.png", featured: false },
+  { id: 70, name: "Hrskavi hleb", category: "Hleb i peciva", description: DESC, price: "70 RSD", image: "zlatna lepinja.png", featured: false },
+  { id: 94, name: "Zlatni hleb", category: "Hleb i peciva", description: DESC, price: "110 RSD", image: "zlatni hleb.png", featured: false },
+  { id: 71, name: "Banana hleb", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "banana hleb.png", featured: false },
+  { id: 72, name: "Francuski hleb", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "francuski hleb.png", featured: false },
+  { id: 2, name: "Bavarska kifla so", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Bavarska kifla.png", featured: false },
+  { id: 3, name: "Bavarska susam", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Bavarska susam.png", featured: false },
+  { id: 4, name: "Dansko pecivo", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Dansko pecivo.png", featured: false },
+  { id: 10, name: "Integralna kifla", category: "Hleb i peciva", description: DESC, price: "60 RSD", image: "Integralna kifla.png", featured: false },
+  { id: 11, name: "Kečap kifla", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Kecap kifla.png", featured: false },
+  { id: 12, name: "Kečap viršla", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Kecap virsla.png", featured: false },
+  { id: 14, name: "Kifla slatka", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Kifla slatka.png", featured: false },
+  { id: 33, name: "Eurokrem kifla", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Eurokrem kifla.png", featured: false },
+  { id: 15, name: "Lisnato jabuka", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato jabuka.png", featured: false },
+  { id: 16, name: "Lisnato kakao", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato kakao.png", featured: false },
+  { id: 17, name: "Lisnato mak", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato mak.png", featured: false },
+  { id: 18, name: "Lisnato sir", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato sir.png", featured: false },
+  { id: 19, name: "Lisnato viršla", category: "Hleb i peciva", description: DESC, price: "120 RSD", image: "Lisnato virsla.png", featured: false },
+  { id: 20, name: "Mala lepinja", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Mala lepinja.png", featured: false },
+  { id: 21, name: "Pletenica", category: "Hleb i peciva", description: DESC, price: "60 RSD", image: "Pletenica.png", featured: false },
+  { id: 22, name: "Pogačica sir", category: "Hleb i peciva", description: DESC, price: "800 RSD / kg", image: "Pogacice sir kg.png", featured: false },
+  { id: 23, name: "Prstići", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Prstici.png", featured: false },
+  { id: 26, name: "Slana kifla", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "Slana kifla.png", featured: false },
+  { id: 27, name: "Slavski kolač", category: "Hleb i peciva", description: DESC, price: "600 RSD", image: "Slavski kolac.png", featured: false },
+  { id: 28, name: "Srce sir", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Srce sir.png", featured: false },
+  { id: 29, name: "Štrudla jabuka", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Strudla jabuka.png", featured: false },
+  { id: 30, name: "Štrudla mak", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Strudla mak.png", featured: false },
+  { id: 31, name: "Štrudla sir", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Strudla sir.png", featured: false },
+  { id: 32, name: "Testo", category: "Hleb i peciva", description: DESC, price: "90 RSD", image: "Testo.png", featured: false },
+  { id: 73, name: "Perec", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "perec.png", featured: false },
+  { id: 74, name: "Štapić kifla", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "stapic kifla.png", featured: false },
+  { id: 75, name: "Suvi perec", category: "Hleb i peciva", description: DESC, price: "50 RSD", image: "suvi perec.png", featured: false },
+
+  // ===== Burek i slani program =====
+  { id: 34, name: "Bufla senf", category: "Burek i slani program", description: DESC, price: "90 RSD", image: "Bufla sent.png", featured: false },
+  { id: 35, name: "Burek jabuka", category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Burek jabuka.png", featured: false },
+  { id: 36, name: "Burek krompir", category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek krompir.png", featured: false },
+  { id: 37, name: "Burek meso", category: "Burek i slani program", description: DESC, price: "250 RSD", image: "Burek meso.png", featured: true },
+  { id: 38, name: "Burek piletina", category: "Burek i slani program", description: DESC, price: "290 RSD", image: "Burek piletina.png", featured: false },
+  { id: 39, name: "Burek sa sirom", category: "Burek i slani program", description: DESC, price: "220 RSD", image: "Burek sa sirom.png", featured: true },
+  { id: 40, name: "Burek šunka", category: "Burek i slani program", description: DESC, price: "270 RSD", image: "Burek sunka.png", featured: false },
+  { id: 97, name: "Pizza burek", category: "Burek i slani program", description: DESC, price: "290 RSD", image: "pizza burek.png", featured: false },
+  { id: 41, name: "Đevrek slanina", category: "Burek i slani program", description: DESC, price: "120 RSD", image: "Djevrek slanina.png", featured: false },
+  { id: 42, name: "Kukuruzna pita šunka", category: "Burek i slani program", description: DESC, price: "180 RSD", image: "Kukuruzan pita sunka.png", featured: false },
+  { id: 43, name: "Lisnato kulen", category: "Burek i slani program", description: DESC, price: "120 RSD", image: "Lisnato kulen.png", featured: false },
+  { id: 44, name: "Lisnato paprika", category: "Burek i slani program", description: DESC, price: "60 RSD", image: "Lisnato paprika.png", featured: false },
+  { id: 45, name: "Lisnato piletina", category: "Burek i slani program", description: DESC, price: "60 RSD", image: "Lisnato piletina.png", featured: false },
+  { id: 95, name: "Super rolna", category: "Burek i slani program", description: DESC, price: "60 RSD", image: "super rolna.png", featured: false },
+  { id: 46, name: "Mekika", category: "Burek i slani program", description: DESC, price: "70 RSD", image: "Mekkika.png", featured: false },
+  { id: 47, name: "Piroška šunka", category: "Burek i slani program", description: DESC, price: "170 RSD", image: "Piroska sunka.png", featured: false },
+  { id: 48, name: "Pita feta sir", category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita feta sir.png", featured: false },
+  { id: 49, name: "Pita spanać", category: "Burek i slani program", description: DESC, price: "150 RSD", image: "Pita spanac.png", featured: false },
+  { id: 50, name: "Pogačica sa čvarcima", category: "Burek i slani program", description: DESC, price: "90 RSD", image: "Pogacica sa cvarcima.png", featured: false },
+  { id: 76, name: "Grissine Viktor 100 g", category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine viktor.png", featured: false },
+  { id: 77, name: "Grissine Massiano 100 g", category: "Burek i slani program", description: DESC, price: "100 RSD", image: "grissine massiano.png", featured: false },
+
+  // ===== Pizza i sendviči =====
+  { id: 51, name: "Pizza kukuruz", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza kukuruz.png", featured: false },
+  { id: 52, name: "Pizza parče (gljivama)", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza gljive.png", featured: true },
+  { id: 53, name: "Pizza parče kulen", category: "Pizza i sendviči", description: DESC, price: "220 RSD", image: "Pizza kulne.png", featured: false },
+  { id: 54, name: "Pomfrit", category: "Pizza i sendviči", description: DESC, price: "200 RSD", image: "Pomfrit.png", featured: false },
+  { id: 55, name: "Tortilje", category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "Tortilje.png", featured: false },
+  { id: 80, name: "Sendvič piletina", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "sandwich-piletina.jpg", featured: false },
+  { id: 81, name: "Sendvič šunka", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "sandwich sunka.png", featured: false },
+  { id: 82, name: "Sendvič kulen", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "sandwich kulen.png", featured: false },
+  { id: 83, name: "Sendvič pečenica", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "sandwich pecenica.png", featured: false },
+  { id: 84, name: "Pileći batak", category: "Pizza i sendviči", description: DESC, price: "180 RSD", image: "batak pileci.png", featured: false },
+  { id: 85, name: "Porodična pizza", category: "Pizza i sendviči", description: DESC, price: "1500 RSD", image: "porodicna pizza.png", featured: true },
+  { id: 86, name: "Sendvič nuggets", category: "Pizza i sendviči", description: DESC, price: "250 RSD", image: "sandwich nuggets.png", featured: false },
+
+  // ===== Kolači, kafa i pića =====
+  { id: 56, name: "Čajevi", category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Cajevi.png", featured: false },
+  { id: 61, name: "Espresso bez mleka", category: "Kolači, kafa i pića", description: DESC, price: "150 RSD", image: "Espresso bez mleka.png", featured: true },
+  { id: 103, name: "Capuccino", category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "capuccino.png", featured: false },
+  { id: 59, name: "Čokoladna torta", category: "Kolači, kafa i pića", description: DESC, price: "220 RSD / parče · 2500 RSD cela", image: "Cokoladna torta.png", featured: true },
+  { id: 60, name: "Dubai torta", category: "Kolači, kafa i pića", description: DESC, price: "300 RSD / parče · 3000 RSD cela", image: "Dubai torta.png", featured: false },
+  { id: 78, name: "Doboš torta", category: "Kolači, kafa i pića", description: DESC, price: "220 RSD / parče · 2500 RSD cela", image: "dobos torta.png", featured: false },
+  { id: 79, name: "Jagoda torta", category: "Kolači, kafa i pića", description: DESC, price: "250 RSD / parče · 2500 RSD cela", image: "jagoda-torta.jpg", featured: false },
+  { id: 98, name: "Šumsko voće torta", category: "Kolači, kafa i pića", description: DESC, price: "250 RSD / parče · 2500 RSD cela", image: "sumsko voce torta.png", featured: false },
+  { id: 99, name: "Malina pistać torta", category: "Kolači, kafa i pića", description: DESC, price: "250 RSD / parče · 2500 RSD cela", image: "malina pistac torta.png", featured: false },
+  { id: 104, name: "Limun pistać torta", category: "Kolači, kafa i pića", description: DESC, price: "220 RSD / parče · 2500 RSD cela", image: "limun pistac torta.png", featured: false },
+  { id: 105, name: "Voćni desert jagoda", category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "vocni-desert-jagoda.webp", featured: false },
+  { id: 106, name: "Voćni desert malina", category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "vocni-desert-malina.webp", featured: false },
+  { id: 107, name: "Voćni desert limun", category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "vocni-desert-limun.webp", featured: false },
+  { id: 108, name: "Voćni desert mango", category: "Kolači, kafa i pića", description: DESC, price: "300 RSD", image: "vocni-desert-mango.webp", featured: false },
+  { id: 102, name: "Red velvet torta", category: "Kolači, kafa i pića", description: DESC, price: "250 RSD / parče · 2500 RSD cela", image: "red velvet torta.png", featured: false },
+  { id: 57, name: "Cheesecake", category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Cheescake.png", featured: false },
+  { id: 58, name: "Čoko lešnik", category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Choko lesnik.png", featured: false },
+  { id: 62, name: "Karamel symphoni", category: "Kolači, kafa i pića", description: DESC, price: "220 RSD", image: "Karamel symphony.png", featured: false },
+  { id: 63, name: "Krempita", category: "Kolači, kafa i pića", description: DESC, price: "170 RSD", image: "Krempita.png", featured: true },
+  { id: 64, name: "Krosan krem", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Krosan krem.png", featured: false },
+  { id: 65, name: "Lenja pita jabuka", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lenja pita jabuka.png", featured: false },
+  { id: 66, name: "Lenja pita krem", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lenja pita krem.png", featured: false },
+  { id: 67, name: "Lisnato višnja", category: "Kolači, kafa i pića", description: DESC, price: "120 RSD", image: "Lisnato visnja.png", featured: false },
+  { id: 68, name: "Pita bundeva", category: "Kolači, kafa i pića", description: DESC, price: "180 RSD", image: "Pita bundeva.png", featured: false },
+  { id: 100, name: "Mafine", category: "Kolači, kafa i pića", description: DESC, price: "60 RSD", image: "mafine.png", featured: false },
+  { id: 101, name: "Krofne", category: "Kolači, kafa i pića", description: DESC, price: "90 RSD", image: "krofne.png", featured: false },
+
+  // ===== Klas Grill =====
+  { id: 87, name: "Hamburger 150 g", category: "Klas Grill", description: DESC, price: "450 RSD", image: "hamburger.jpeg", featured: true },
+  { id: 88, name: "Ćevap pazarski 5 kom", category: "Klas Grill", description: DESC, price: "400 RSD", image: "cevap-pazarski-5-kom.jpg", featured: false },
+  { id: 89, name: "Ćevap pazarski 10 kom", category: "Klas Grill", description: DESC, price: "800 RSD", image: "cevap-pazarski-10-kom.jpg", featured: false },
+  { id: 90, name: "Ćevap sarajevski 5 kom", category: "Klas Grill", description: DESC, price: "300 RSD", image: "cevap 5 kom.jpeg", featured: false },
+  { id: 91, name: "Ćevap sarajevski 10 kom", category: "Klas Grill", description: DESC, price: "600 RSD", image: "cevap 10 kom.jpeg", featured: false },
+  { id: 92, name: "Pljeskavica 200 g", category: "Klas Grill", description: DESC, price: "550 RSD", image: "Pljeskavica 200g.png", featured: true },
+  { id: 93, name: "Gyros", category: "Klas Grill", description: DESC, price: "500 RSD", image: "gyros.jpg", featured: false },
+];
+
+/* ============================
+   LOCATIONS — single source
+============================ */
+const LOCATIONS = [
+  {name:"Klas 024 — Moše Pijade",   address:"Moše Pijade 53",  hours:"00–24"},
+  {name:"Klas 024 — Maršala Tita",  address:"Maršala Tita 4",  hours:"05–22"},
+  {name:"Klas 024 — Lenjinova",     address:"Lenjinova 84",    hours:"05–22"},
+];
+
+/* ============================
+   RENDER
+============================ */
+function cardHTML(p){
+  return `
+    <article class="card" data-cat="${p.category}" data-name="${p.name.toLowerCase()}">
+      <div class="card-img" style="background-image:url('${p.image}')">
+        <span class="card-tag">${p.category}</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${p.name}</h3>
+        <p class="card-desc">${p.description}</p>
+        <div class="card-foot">
+          <span class="price">${p.price}</span>
+        </div>
+      </div>
+    </article>`;
+}
+
+// Featured (first 8 with featured:true)
+const featured = PRODUCTS.filter(p=>p.featured).slice(0,8);
+document.getElementById('featuredGrid').innerHTML = featured.map(cardHTML).join('');
+
+// Categories
+// Klas Grill uses a premium dark fallback gradient plus the uploaded hamburger product image when available.
+const CAT_BG = {
+  "Hleb i peciva":"url('hleb-peciva.jpg')",
+  "Burek i slani program":"url('burek-slani-program.jpg')",
+  "Pizza i sendviči":"url('pizza-sendvici.jpg')",
+  "Kolači, kafa i pića":"url('kolaci-kafa-pica.jpg')",
+  "Klas Grill":"linear-gradient(135deg, rgba(14,14,16,.55), rgba(227,18,43,.28)), url('hamburger.jpeg'), linear-gradient(135deg,#3a1408,#0e0e10)",
+};
+document.getElementById('catGrid').innerHTML = CATEGORIES.map(c=>`
+  <a class="cat-card" href="#meni" data-filter="${c}">
+    <div class="bg" style="background-image:${CAT_BG[c]}"></div>
+    <div class="label">
+      <div class="k">${c}</div>
+      <div class="arrow">Pogledaj ponudu →</div>
+    </div>
+  </a>
+`).join('');
+
+// Filters
+const ALL = "Sve";
+const filterCats = [ALL, ...CATEGORIES];
+const filtersEl = document.getElementById('filters');
+filtersEl.innerHTML = filterCats.map((c,i)=>
+  `<button class="chip ${i===0?'active':''}" data-cat="${c}">${c}</button>`
+).join('');
+
+// Menu
+const menuGrid = document.getElementById('menuGrid');
+function renderMenu(){
+  const active = document.querySelector('.chip.active').dataset.cat;
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const list = PRODUCTS.filter(p=>
+    (active===ALL || p.category===active) &&
+    (q==="" || p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q))
+  );
+  menuGrid.innerHTML = list.map(cardHTML).join('');
+  document.getElementById('empty').style.display = list.length? 'none':'block';
+}
+renderMenu();
+
+function setActiveCategory(cat){
+  document.querySelectorAll('.chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.cat===cat);
+  });
+  renderMenu();
+}
+
+filtersEl.addEventListener('click', e=>{
+  if(!e.target.classList.contains('chip')) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  e.target.classList.add('active');
+  renderMenu();
+});
+document.getElementById('searchInput').addEventListener('input', renderMenu);
+
+// Category quick-jump
+document.querySelectorAll('.cat-card').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    setActiveCategory(el.dataset.filter);
+  });
+});
+
+// Footer category links
+document.querySelectorAll('[data-cat-link]').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    setActiveCategory(el.getAttribute('data-cat-link'));
+  });
+});
+
+// Locations (no placeholders; phone/map hidden when not provided)
+document.getElementById('locGrid').innerHTML = LOCATIONS.map(l=>`
+  <div class="loc-card">
+    <h3>${l.name}</h3>
+    <div class="loc-row"><span class="ic">●</span><span>${l.address}</span></div>
+    ${l.phone ? `<div class="loc-row"><span class="ic">☎</span><span>${l.phone}</span></div>` : ``}
+    <div class="loc-row"><span class="ic">⏰</span><span>Radno vreme: ${l.hours}</span></div>
+    ${l.map ? `<a class="btn btn-primary" href="${l.map}" target="_blank" rel="noopener">Otvori u Google Maps</a>` : ``}
+  </div>
+`).join('');
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Close mobile nav on click
+document.querySelectorAll('#navLinks a').forEach(a=>{
+  a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open'));
+});
+
+// /menu deep link support (QR code -> http://www.klas024.rs/menu)
+(function(){
+  const path = window.location.pathname.toLowerCase().replace(/\/+$/,'');
+  if (path.endsWith('/menu')) {
+    setTimeout(()=>{
+      const el = document.getElementById('meni');
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
+})();
+</script>
+</body>
+</html>
